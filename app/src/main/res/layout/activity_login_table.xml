@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/cbRemember"
             android:layout_column="1"
-            android:layout_gravity="end"/>
+            android:layout_gravity="right|end"/>
     </TableRow>
     <TableRow
         android:layout_width="match_parent"
@@ -79,14 +79,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btOk"
-                tools:ignore="ButtonStyle" />
+                style="?android:attr/buttonBarButtonStyle"/>
 
             <Button
                 android:text="@string/btCancelText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btCancel"
-                tools:ignore="ButtonStyle" />
+                style="?android:attr/buttonBarButtonStyle"/>
         </LinearLayout>
     </TableRow>
 </TableLayout>
