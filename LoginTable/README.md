@@ -1,5 +1,5 @@
 # LoginRelative
-This project is a Login done with a RelativeLayout and implementing Model-View-Presenter.
+This project is a Login done with a TableLayout and implementing Model-View-Controller.
 
 The project only check credentials (There is not a database or correct credentials):
 - It needs at least to be greater or equal than 8 characters
