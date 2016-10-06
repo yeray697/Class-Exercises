@@ -35,7 +35,7 @@ public class LoginPresenter implements ILoginMvp.Presenter {
      * Method that check if a password comply with some conditions
      * @param user Username used to login
      * @param pass Password used to login
-     * @return Return a code with the result. 0 = Correct, else, it is an error
+     * @return Return a code with the result. 0 = Correct, else, it there is an error
      */
     @Override
     public void validateCredentials(String user, String pass) {
@@ -69,6 +69,9 @@ public class LoginPresenter implements ILoginMvp.Presenter {
         else if (!lowercaseMatch){
             result = ILoginMvp.PASSWORD_CASE;
             error = ((Context)view).getResources().getString(R.string.password_case);
+        }
+        else { //If there is no error
+            ((LoginApplication)((Context)view).getApplicationContext()).setUser(new User(this.user, this.pass));
         }
         //If there is an error, we set it on the view
         if (result != ILoginMvp.CORRECT) {

@@ -2,6 +2,7 @@ package com.example.loginrelative;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,8 +13,9 @@ import android.widget.Toast;
  * @author Yeray Ruiz
  * @version 1.0
  */
-public class Login_Activity extends AppCompatActivity implements ILoginMvp.View {
+public class LoginActivity extends AppCompatActivity implements ILoginMvp.View {
 
+    private static final String TAG = "loginrelative";
     private ILoginMvp.Presenter loginMvp;
     private EditText etUser, etPass;
     private Button btSubmit, btCancel;
@@ -41,6 +43,13 @@ public class Login_Activity extends AppCompatActivity implements ILoginMvp.View 
                 resetValues();
             }
         });
+        //Checking Application Object
+        User user = ((LoginApplication)getApplicationContext()).getUser();
+        if (user != null){
+            Log.d(TAG, "User: "+ user.getUser());
+            Log.d(TAG, "Pass: "+ user.getPassword());
+        }
+
     }
 
     /**
@@ -68,5 +77,17 @@ public class Login_Activity extends AppCompatActivity implements ILoginMvp.View 
     @Override
     public void setMessageError(String messageError) {
         Toast.makeText(this, messageError, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        Log.d(TAG, "Activity finalizada");
+        //Checking Application Object
+        User user = ((LoginApplication)getApplicationContext()).getUser();
+        if (user != null){
+            Log.d(TAG, "User: "+ user.getUser());
+            Log.d(TAG, "Pass: "+ user.getPassword());
+        }
     }
 }
