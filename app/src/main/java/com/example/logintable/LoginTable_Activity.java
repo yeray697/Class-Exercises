@@ -8,11 +8,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.logintable.controller.ILoginMvc;
 import com.example.logintable.controller.LoginTable_Controller;
 
+/**
+ * Class that implements a login
+ * @author Yeray Ruiz
+ * @version 1.0
+ */
 public class LoginTable_Activity extends AppCompatActivity {
 
-    private LoginTable_Controller loginTableController;
+    private ILoginMvc loginMvc;
     private EditText etUser, etPass;
     private Button btOk, btCancel;
 
@@ -22,7 +28,7 @@ public class LoginTable_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_login_table);
 
         //Initializing variables
-        loginTableController = new LoginTable_Controller();
+        loginMvc = new LoginTable_Controller();
 
         //Setting controls
         etUser = (EditText) findViewById(R.id.etUser);
@@ -46,13 +52,16 @@ public class LoginTable_Activity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Method used when user clicks on btOk
+     */
     private void loginClick() {
         String user = etUser.getText().toString();
         String pass = etPass.getText().toString();
         if (TextUtils.isEmpty(user) || TextUtils.isEmpty(pass)){
             Toast.makeText(LoginTable_Activity.this,getResources().getString(R.string.data_empty),Toast.LENGTH_SHORT).show();
         }else {
-            int result = loginTableController.validateCredentials(user,pass);
+            int result = loginMvc.validateCredentials(user,pass);
             switch (result){
                 case 0: //Correct
                     break;
@@ -75,6 +84,9 @@ public class LoginTable_Activity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Method used when user click on btCancel
+     */
     private void resetValues() {
         etPass.setText("");
         etUser.setText("");
