@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.loginrelative.Login_Activity">
+
+    <TextView
+        android:id="@+id/tvUser"
+        android:layout_width="@dimen/widget_textview_weigth"
+        android:layout_height="wrap_content"
+        android:text="@string/tvUserText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/tvUser"
+        android:layout_alignBaseline="@id/tvUser"
+        android:id="@+id/etUser"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@id/tvUser"/>
+
+    <TextView
+        android:text="@string/tvPassText"
+        android:layout_width="@dimen/widget_textview_weigth"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvPass"
+        android:layout_below="@id/tvUser"
+        android:layout_alignStart="@id/tvUser"
+        android:layout_alignLeft="@id/tvUser"
+        android:layout_marginTop="@dimen/widget_margin_top"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:id="@+id/etPass"
+        android:ems="10"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/etUser"
+        android:layout_toRightOf="@id/tvPass"
+        android:layout_alignBaseline="@id/tvPass"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@id/tvPass"/>
+
+    <CheckBox
+        android:text="@string/cbRememberText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etPass"
+        android:id="@+id/cbRemember"
+        android:layout_marginTop="@dimen/widget_margin_top"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cbRemember"
+        android:layout_marginTop="@dimen/widget_margin_top"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:text="@android:string/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btCancel"
+            style="?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+            android:text="@android:string/ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btSubmit"
+            style="?android:attr/buttonBarButtonStyle"/>
+    </LinearLayout>
+</RelativeLayout>
