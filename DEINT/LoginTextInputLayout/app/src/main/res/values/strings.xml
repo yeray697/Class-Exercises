@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">LoginRelative</string>
+    <string name="tvUserText">Usuario</string>
+    <string name="tvPassText">Contraseña</string>
+    <string name="cbRememberText">Recordar</string>
+    <string name="etPassHint">Introduce la contraseña</string>
+    <string name="etUserHint">Introduce el usuario</string>
+    <string name="btSubmitText">Login</string>
+</resources>
