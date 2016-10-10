@@ -75,8 +75,16 @@ public class LoginActivity extends AppCompatActivity implements ILoginMvp.View {
      * @param messageError Error that will show
      */
     @Override
-    public void setMessageError(String messageError) {
-        Toast.makeText(this, messageError, Toast.LENGTH_SHORT).show();
+    public void setMessageError(String messageError, int idView) {
+        //Toast.makeText(this, messageError, Toast.LENGTH_SHORT).show();
+        switch (idView){
+            case R.id.etPass:
+                etPass.setError(messageError);
+                break;
+            case R.id.etUser:
+                etUser.setError(messageError);
+                break;
+        }
     }
 
     @Override

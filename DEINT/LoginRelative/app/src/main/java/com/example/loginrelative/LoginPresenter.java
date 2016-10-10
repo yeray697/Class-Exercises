@@ -42,6 +42,7 @@ public class LoginPresenter implements ILoginMvp.Presenter {
         this.user = user;
         this.pass = pass;
         String error = "";
+        int idView = -1;
         int result = ILoginMvp.CORRECT;
         Boolean numericMatch, uppercaseMatch, lowercaseMatch, minLength;
         //Boolean conditions
@@ -50,32 +51,42 @@ public class LoginPresenter implements ILoginMvp.Presenter {
         uppercaseMatch = Pattern.matches(".*[a-z]+.*",this.pass);
         lowercaseMatch = Pattern.matches(".*[A-Z]+.*",this.pass);
         //Checking conditions
-        if (TextUtils.isEmpty(this.user) || TextUtils.isEmpty(this.pass)) {
+        if (TextUtils.isEmpty(this.user)) {
             result = ILoginMvp.DATA_EMPTY;
-            error = ((Context)view).getResources().getString(R.string.data_empty);
+            error = ((Context)view).getResources().getString(R.string.data_empty_user);
+            idView = R.id.etUser;
+        }
+        else if (TextUtils.isEmpty(this.pass)) {
+            result = ILoginMvp.DATA_EMPTY;
+            error = ((Context)view).getResources().getString(R.string.data_empty_pass);
+            idView = R.id.etPass;
         }
         else if (minLength){
             result = ILoginMvp.PASSWORD_LENGTH;
             error = ((Context)view).getResources().getString(R.string.password_length);
+            idView = R.id.etPass;
         }
         else if (!numericMatch){
             result = ILoginMvp.PASSWORD_DIGIT;
             error = ((Context)view).getResources().getString(R.string.password_digit);
+            idView = R.id.etPass;
         }
         else if (!uppercaseMatch){
             result = ILoginMvp.PASSWORD_CASE;
             error = ((Context)view).getResources().getString(R.string.password_case);
+            idView = R.id.etPass;
         }
         else if (!lowercaseMatch){
             result = ILoginMvp.PASSWORD_CASE;
             error = ((Context)view).getResources().getString(R.string.password_case);
+            idView = R.id.etPass;
         }
         else { //If there is no error
             ((LoginApplication)((Context)view).getApplicationContext()).setUser(new User(this.user, this.pass));
         }
         //If there is an error, we set it on the view
         if (result != ILoginMvp.CORRECT) {
-            view.setMessageError(error);
+            view.setMessageError(error, idView);
         }
     }
 }

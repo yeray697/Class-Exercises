@@ -13,7 +13,7 @@ public interface ILoginMvp {
     int MINLENGTH = 8;
 
     interface View{
-        public void setMessageError(String messageError);
+        public void setMessageError(String messageError, int idView);
     }
     interface Presenter{
         public void validateCredentials(String user, String pass);
