@@ -1,0 +1,40 @@
+package yrj.fibonacci.psp;
+
+import java.io.Console;
+
+public class Fibonacci {
+
+	static int numero = 7;
+	public static void main(String[] args) {
+		System.out.println("Calculando fibonacci de "+numero);
+		System.out.println("Resultado: "+fibonacciResolver(numero));
+	}
+	private static int fibonacciResolver(int nVeces) {
+		int resultado = 1;
+		int contador = 1;
+		int aux = 1;
+		if (nVeces == 0)
+			resultado = 0;		
+		else if (nVeces == 1 || nVeces == 2)
+			resultado = 1;
+		else {
+			while (contador < nVeces) {
+				System.out.println(contador+" -> "+resultado);
+				resultado+=aux;
+				aux = resultado - aux;
+				contador++;
+			}
+		}
+		return resultado;
+	}
+}
+class FibonacciThread implements Runnable{
+	Thread thread;
+	public FibonacciThread(int nVeces) {
+		
+	}
+	@Override
+	public void run() {
+		
+	}
+}

@@ -1,0 +1,40 @@
+package yrj.thread.psp;
+
+public class ThreadExample {
+	public static void main(String args[]){
+		//new HelloThread().start();
+		new HelloThread2().start();
+		System.out.println("Hola desde el hilo principal!");
+		System.out.println("Proceso acabado");
+	}
+}
+
+class HelloThread2 extends Thread{
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		super.run();
+		System.out.println("Hola desde el hilo creado");
+	}
+	
+}
+
+class HelloThread implements Runnable{
+
+	Thread t;
+	public HelloThread() {
+		// TODO Auto-generated constructor stub
+		t = new Thread(this, "Nuevo Thread");
+		System.out.println("Creado hilo:" + t);
+	}
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		System.out.println("Hola desde el hilo creado!");
+		System.out.println("Hilo finalizado");
+	}
+	public void start() {
+		t.start();
+	}
+}
