@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LoginRelative</string>
+    <string name="btSubmitText">Login</string>
+    <string name="cbRememberText">Remember</string>
+    <string name="etPassHint">Introduce a password</string>
+    <string name="etUserHint">Introduce an username</string>
+    <string name="tvUserText">Username</string>
+    <string name="tvPassText">Passsword</string>
+</resources>
