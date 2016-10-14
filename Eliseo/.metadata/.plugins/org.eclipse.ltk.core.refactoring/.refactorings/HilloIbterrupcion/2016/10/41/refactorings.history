@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;yrj.dam.interrupt&apos; to &apos;yrj.dam.hilo&apos;&#x0A;- Original project: &apos;HilloIbterrupcion&apos;&#x0A;- Original element: &apos;HilloIbterrupcion/src/yrj.dam.interrupt&apos;&#x0A;- Renamed element: &apos;HilloIbterrupcion/src/yrj.dam.hilo&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;yrj.dam.interrupt&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;yrj.dam.interrupt" name="yrj.dam.hilo" qualified="false" references="true" stamp="1476434166363" textual="false" version="1.0"/>
+</session>
