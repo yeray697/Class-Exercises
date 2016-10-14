@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DynamicTable</string>
+    <string name="tvIdText">Id</string>
+    <string name="tvNameText">Nombre</string>
+</resources>
