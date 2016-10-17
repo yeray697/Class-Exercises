@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SendMessage</string>
+    <string name="eTSend">Escribe un texto...</string>
+    <string name="btSend">Enviar</string>
+    <string name="tvReceivedText">Texto enviado:\n</string>
+    <string name="tvReceived">TextView</string>
+</resources>
