@@ -1,15 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="idDefault">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-    </array>
-    <array name="nameDefault">
+    <array name="listName">
+        <item>Juan</item>
+        <item>Paco</item>
+        <item>Laura</item>
+        <item>María</item>
+        <item>Roberto</item>
+        <item>Anna</item>
+        <item>José</item>
+        <item>Juan</item>
+        <item>Paco</item>
+        <item>Laura</item>
+        <item>María</item>
+        <item>Roberto</item>
+        <item>Anna</item>
+        <item>José</item>
+        <item>Juan</item>
+        <item>Paco</item>
+        <item>Laura</item>
+        <item>María</item>
+        <item>Roberto</item>
+        <item>Anna</item>
+        <item>José</item>
+        <item>Juan</item>
+        <item>Paco</item>
+        <item>Laura</item>
+        <item>María</item>
+        <item>Roberto</item>
+        <item>Anna</item>
+        <item>José</item>
+        <item>Juan</item>
+        <item>Paco</item>
+        <item>Laura</item>
+        <item>María</item>
+        <item>Roberto</item>
+        <item>Anna</item>
+        <item>José</item>
         <item>Juan</item>
         <item>Paco</item>
         <item>Laura</item>

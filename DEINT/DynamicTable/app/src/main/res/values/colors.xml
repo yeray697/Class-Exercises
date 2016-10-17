@@ -2,5 +2,10 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#ff4081</color>
+    <color name="border_header">#311b92</color>
+    <color name="start_background_header">#6200ea</color>
+    <color name="end_background_header">#00e5ff</color>
+    <color name="border_body">#1565c0</color>
+    <color name="background_body">#0091ea</color>
 </resources>

@@ -14,14 +14,17 @@
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tlHeader"/>
+        android:id="@+id/tlHeader"
+        android:stretchColumns="1"/>
     <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tlHeader">
 
         <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tlBody"/>
+            android:id="@+id/tlBody"
+            android:stretchColumns="1"/>
     </ScrollView>
 </RelativeLayout>
