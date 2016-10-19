@@ -6,11 +6,6 @@ import android.text.TextUtils;
 import java.util.regex.Pattern;
 
 /**
- * Created by usuario on 6/10/16.
- */
-
-
-/**
  * Class that implements Login business rules:
  *  -It needs at least one uppercase and lowercase letter
  *  -It needs at least one digit
