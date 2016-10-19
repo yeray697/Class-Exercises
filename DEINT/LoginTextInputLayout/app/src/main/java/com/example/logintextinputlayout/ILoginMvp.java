@@ -1,7 +1,7 @@
 package com.example.logintextinputlayout;
 
 /**
- * Created by usuario on 6/10/16.
+ * @author Yeray Ruiz
  */
 
 public interface ILoginMvp {
@@ -13,9 +13,9 @@ public interface ILoginMvp {
     int MINLENGTH = 8;
 
     interface View{
-        public void setMessageError(String messageError, int idView);
+        void setMessageError(String messageError, int idView);
     }
     interface Presenter{
-        public void validateCredentials(String user, String pass);
+        void validateCredentials(String user, String pass);
     }
 }

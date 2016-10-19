@@ -1,7 +1,7 @@
 package com.example.logintextinputlayout;
 
 /**
- * Created by usuario on 6/10/16.
+ * @author Yeray Ruiz
  */
 
 public class User {
