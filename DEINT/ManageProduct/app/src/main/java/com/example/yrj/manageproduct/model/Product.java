@@ -9,13 +9,15 @@ public class Product {
     private int mId;
     private String mName;
     private String mDescription;
+    private String mBrand;
     private double mPrice;
     private int mStock;
     private int mImage;
 
-    public Product(String mName, String mDescription, double mPrice, int mStock, int mImage){
+    public Product(String mName, String mDescription, String mBrand, double mPrice, int mStock, int mImage){
         this.mName = mName;
         this.mDescription = mDescription;
+        this.mBrand = mBrand;
         this.mPrice = mPrice;
         this.mStock = mStock;
         this.mImage = mImage;
