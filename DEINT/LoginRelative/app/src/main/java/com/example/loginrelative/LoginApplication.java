@@ -3,7 +3,7 @@ package com.example.loginrelative;
 import android.app.Application;
 
 /**
- * Created by usuario on 6/10/16.
+ * @autor Yeray Ruiz
  */
 
 public class LoginApplication extends Application {
