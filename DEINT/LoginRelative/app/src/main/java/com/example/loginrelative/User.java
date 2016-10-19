@@ -1,7 +1,7 @@
 package com.example.loginrelative;
 
 /**
- * Created by usuario on 6/10/16.
+ * @autor Yeray Ruiz
  */
 
 public class User {
