@@ -25,12 +25,14 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:id="@+id/btB" />
+        android:id="@+id/btB"
+        android:background="@drawable/shapeb"/>
 
     <Button
         android:text="@string/btCText"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:id="@+id/btC" />
+        android:id="@+id/btC"
+        android:background="@drawable/shapec"/>
 </LinearLayout>

@@ -4,10 +4,16 @@
 <fullyQualifiedTypeName name="yrj.thread.psp.HelloThread"/>
 <fullyQualifiedTypeName name="java.lang.Runnable"/>
 <fullyQualifiedTypeName name="java.io.Console"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="yrj.dam.hilo.HiloInterrupt"/>
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="com.yrj.psp.contador"/>
+<fullyQualifiedTypeName name="com.yrj.psp.sumador"/>
+<fullyQualifiedTypeName name="com.yrj.psp.Sumador"/>
+<fullyQualifiedTypeName name="com.yrj.psp.Restador"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.lang.Comparable"/>
+<fullyQualifiedTypeName name="com.yrj.psp.Contador"/>
 </qualifiedTypeNameHistroy>
