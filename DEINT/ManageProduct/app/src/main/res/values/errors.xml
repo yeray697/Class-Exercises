@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="data_empty_pass">La contraseña no puede estar vacío</string>
+    <string name="data_empty_user">El usuario no puede estar vacío</string>
+    <string name="password_digit">La contraseña tiene que contener 1 dígito</string>
+    <string name="password_case">La contraseña tiene que contener 1 letra mayúscula y otra minúscula</string>
+    <string name="password_length">La contraseña tiene que tener una longitud mínima de 8</string>
+    <string name="login_conexion">No hay conexión</string>
+</resources>

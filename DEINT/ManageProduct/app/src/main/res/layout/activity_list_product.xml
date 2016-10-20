@@ -10,8 +10,17 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.yrj.manageproduct.ListProduct_Activity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <AutoCompleteTextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="AutoCompleteTextView"
+        android:id="@+id/acSearchProduct"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/acSearchProduct"
+        android:id="@android:id/list"/>
 </RelativeLayout>
