@@ -8,12 +8,17 @@
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="com.yrj.psp.contador"/>
 <fullyQualifiedTypeName name="com.yrj.psp.sumador"/>
 <fullyQualifiedTypeName name="com.yrj.psp.Sumador"/>
 <fullyQualifiedTypeName name="com.yrj.psp.Restador"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.lang.Comparable"/>
 <fullyQualifiedTypeName name="com.yrj.psp.Contador"/>
+<fullyQualifiedTypeName name="java.util.concurrent.atomic.AtomicInteger"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="yrj.dam.psp.DosMutex"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="yrj.dam.psp.GlobalVar"/>
 </qualifiedTypeNameHistroy>
