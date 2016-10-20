@@ -40,7 +40,6 @@ public class LoginApplication extends Application {
             this.user = user;
     }
 
-
     public List<Product> getProducts(){
         return products;
     }
@@ -52,17 +51,5 @@ public class LoginApplication extends Application {
             result = true;
         }
         return result;
-    }
-
-    public String[] getProductsName() {
-        return  null;
-    }
-
-    public String[] getProductsStock() {
-        return null;
-    }
-
-    public int[] getProductsImage() {
-        return null;
     }
 }

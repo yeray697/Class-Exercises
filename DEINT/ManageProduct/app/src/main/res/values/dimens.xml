@@ -4,4 +4,5 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="widget_margin_top">25dp</dimen>
     <dimen name="widget_textview_weigth">100dp</dimen>
+    <dimen name="add_product_margin_bottom">15dp</dimen>
 </resources>

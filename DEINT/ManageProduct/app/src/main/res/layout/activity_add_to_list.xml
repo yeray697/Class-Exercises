@@ -18,7 +18,7 @@
         android:id="@+id/etName"
         android:hint="@string/etNameHint"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="25dp"/>
+        android:layout_marginBottom="@dimen/add_product_margin_bottom"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
         android:layout_below="@id/etName"
         android:id="@+id/etDescription"
         android:hint="@string/etDescriptionHint"
-        android:layout_marginBottom="25dp"/>
+        android:layout_marginBottom="@dimen/add_product_margin_bottom"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -40,7 +40,7 @@
         android:layout_alignParentEnd="true"
         android:layout_below="@id/etDescription"
         android:hint="@string/etBrandHint"
-        android:layout_marginBottom="25dp"/>
+        android:layout_marginBottom="@dimen/add_product_margin_bottom"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -52,35 +52,58 @@
         android:id="@+id/etDosage"
         android:layout_alignParentEnd="true"
         android:hint="@string/etDosageHint"
-        android:layout_marginBottom="25dp"/>
+        android:layout_marginBottom="@dimen/add_product_margin_bottom"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/etDosage"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         android:ems="10"
         android:layout_alignParentRight="true"
         android:id="@+id/etPrice"
         android:layout_alignParentEnd="true"
         android:hint="@string/etPriceHint"
-        android:layout_marginBottom="25dp"/>
+        android:layout_marginBottom="@dimen/add_product_margin_bottom"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/etPrice"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:ems="10"
         android:layout_alignParentRight="true"
         android:id="@+id/etStock"
         android:layout_alignParentEnd="true"
         android:hint="@string/etStockHint"
-        android:layout_marginBottom="25dp"/>
+        android:layout_marginBottom="@dimen/add_product_margin_bottom"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etStock"
+        android:id="@+id/llyPhoto"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etStock"
+            android:id="@+id/btPhoto"
+            android:text="@string/btPhotoText"
+            android:layout_marginBottom="@dimen/add_product_margin_bottom"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvPhoto"
+            android:text="@string/tvPhotoText"
+            android:gravity="center"/>
+    </LinearLayout>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/etStock"
+        android:layout_below="@id/llyPhoto"
+        android:layout_alignParentBottom="true"
         android:id="@+id/btSave"
         android:text="@string/btSaveText"
         android:layout_centerHorizontal="true"/>

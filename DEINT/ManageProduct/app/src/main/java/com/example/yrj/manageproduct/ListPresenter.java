@@ -3,6 +3,8 @@ package com.example.yrj.manageproduct;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
+import android.renderscript.Double2;
 import android.text.TextUtils;
 
 import com.example.yrj.manageproduct.model.Product;
@@ -18,40 +20,46 @@ public class ListPresenter implements IListMvp.Presenter{
     }
 
     @Override
-    public void validateCredentials(String name, String description, String brand, String dosage, String price, String stock) {
+    public boolean validateCredentials(String name, String description, String brand, String dosage, String price, String stock, Uri image) {
         String error = "";
+        boolean result = false;
         int idView = -1;
-        int result = IListMvp.CORRECT;
+        int isThereAnError = IListMvp.CORRECT;
         //Checking conditions
         if (TextUtils.isEmpty(name)) {
-            result = IListMvp.NAME_EMPTY;
-            error = ((Context)view).getResources().getString(R.string.data_empty_user);
+            isThereAnError = IListMvp.NAME_EMPTY;
+            error = ((Context)view).getResources().getString(R.string.data_empty_name);
             idView = R.id.etName;
         }
         else if (TextUtils.isEmpty(description)) {
-            result = IListMvp.DESCRIPTION_EMPTY;
-            error = ((Context)view).getResources().getString(R.string.data_empty_pass);
+            isThereAnError = IListMvp.DESCRIPTION_EMPTY;
+            error = ((Context)view).getResources().getString(R.string.data_empty_description);
             idView = R.id.etDescription;
         }
         else if (TextUtils.isEmpty(brand)) {
-            result = IListMvp.BRAND_EMPTY;
-            error = ((Context)view).getResources().getString(R.string.data_empty_pass);
+            isThereAnError = IListMvp.BRAND_EMPTY;
+            error = ((Context)view).getResources().getString(R.string.data_empty_brand);
             idView = R.id.etBrand;
         }
         else if (TextUtils.isEmpty(dosage)) {
-            result = IListMvp.DOSAGE_EMPTY;
-            error = ((Context)view).getResources().getString(R.string.data_empty_pass);
+            isThereAnError = IListMvp.DOSAGE_EMPTY;
+            error = ((Context)view).getResources().getString(R.string.data_empty_dosage);
             idView = R.id.etDosage;
         }
         else if (TextUtils.isEmpty(price)) {
-            result = IListMvp.PRICE_EMPTY;
-            error = ((Context)view).getResources().getString(R.string.data_empty_pass);
+            isThereAnError = IListMvp.PRICE_EMPTY;
+            error = ((Context)view).getResources().getString(R.string.data_empty_price);
             idView = R.id.etPrice;
         }
         else if (TextUtils.isEmpty(stock)) {
-            result = IListMvp.STOCK_EMPTY;
-            error = ((Context)view).getResources().getString(R.string.data_empty_pass);
+            isThereAnError = IListMvp.STOCK_EMPTY;
+            error = ((Context)view).getResources().getString(R.string.data_empty_stock);
             idView = R.id.etStock;
+        }
+        else if (image == null) {
+            isThereAnError = IListMvp.PHOTO_EMPTY;
+            error = ((Context)view).getResources().getString(R.string.data_empty_photo);
+            idView = -2;
         }
         else { //If there is no error
             Intent returnIntent = new Intent();
@@ -59,15 +67,17 @@ public class ListPresenter implements IListMvp.Presenter{
             returnIntent.putExtra("description",description);
             returnIntent.putExtra("brand",brand);
             returnIntent.putExtra("dosage", dosage);
-            returnIntent.putExtra("price", price);
-            returnIntent.putExtra("stock",stock);
-            //returnIntent.putExtra("image",image);
+            returnIntent.putExtra("price", Double.parseDouble(price));
+            returnIntent.putExtra("stock",Integer.parseInt(stock));
+            returnIntent.putExtra("image",image);
             ((Activity)view).setResult(Activity.RESULT_OK,returnIntent);
             ((Activity)view).finish();
+            result = true;
         }
         //If there is an error, we set it on the view
-        if (result != ILoginMvp.CORRECT) {
+        if (isThereAnError != ILoginMvp.CORRECT) {
             view.setMessageError(error, idView);
         }
+        return result;
     }
 }

@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.yrj.manageproduct.model.CustomAdapter;
+import com.example.yrj.manageproduct.model.Product;
 
 public class ListProduct_Activity extends ListActivity{
 
@@ -45,15 +46,20 @@ public class ListProduct_Activity extends ListActivity{
         if (requestCode == ADDTOLISTREQUEST){
             if (resultCode == RESULT_OK){
                 String name, description, brand, dosage;
-                double price, stock;
+                double price;
+                int stock, image;
                 name = data.getExtras().getString("name");
                 description = data.getExtras().getString("description");
                 brand = data.getExtras().getString("brand");
                 dosage = data.getExtras().getString("dosage");
                 price = data.getExtras().getDouble("price");
-                stock = data.getExtras().getDouble("stock");
-                //get image?????
-                //Product product = new Product(name, description, brand, dosage, price,  stock, image);
+                stock = data.getExtras().getInt("stock");
+                image = data.getExtras().getInt("image",R.mipmap.ic_launcher);
+                Product product = new Product(name, description, brand, dosage, price,  stock, image);
+                //Adding product
+                ((LoginApplication) getApplication()).addProduct(product);
+                //Updating list
+                this.getListView().setAdapter(new CustomAdapter(this,((LoginApplication) getApplication()).getProducts()));
             }
             else
                 Toast.makeText(this, "Error: " + resultCode, Toast.LENGTH_SHORT).show();
