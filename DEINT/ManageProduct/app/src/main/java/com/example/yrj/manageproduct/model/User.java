@@ -1,4 +1,4 @@
-package com.example.yrj.manageproduct;
+package com.example.yrj.manageproduct.model;
 
 /**
  * @author Yeray Ruiz

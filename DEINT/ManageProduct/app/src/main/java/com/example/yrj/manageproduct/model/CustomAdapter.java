@@ -1,4 +1,4 @@
-package com.example.yrj.manageproduct;
+package com.example.yrj.manageproduct.model;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.yrj.manageproduct.ListProduct_Activity;
+import com.example.yrj.manageproduct.R;
 import com.example.yrj.manageproduct.model.Product;
 
 import java.util.List;
@@ -18,21 +20,21 @@ import java.util.List;
  * Created by usuario on 20/10/16.
  */
 public class CustomAdapter extends BaseAdapter {
-    private String[] name;
+    private String[] name, stock;
     private Context context;
-    private int[] stock, image;
+    private int[] image;
     private static LayoutInflater inflater=null;
 
     public CustomAdapter(ListProduct_Activity listProduct_activity, List<Product> products) {
         super();
         this.context = listProduct_activity;
         this.name = new String[products.size()];
-        this.stock = new int[products.size()];
+        this.stock = new String[products.size()];
         this.image = new int[products.size()];
         int contador = 0;
         for (Product product:products) {
             this.name[contador] = product.getName();
-            this.stock[contador] = product.getStock();
+            this.stock[contador] = String.valueOf(product.getStock());
             this.image[contador] = product.getImage();
             contador++;
         }
@@ -70,12 +72,14 @@ public class CustomAdapter extends BaseAdapter {
         Holder holder = new Holder();
         View rowView;
         rowView = inflater.inflate(R.layout.listrow,null);
-        holder.tvName= (TextView) rowView.findViewById(R.id.tvNameRow);
-        holder.tvStock= (TextView) rowView.findViewById(R.id.tvStockRow);
+
+        holder.tvName = (TextView) rowView.findViewById(R.id.tvNameRow);
+        holder.tvStock = (TextView) rowView.findViewById(R.id.tvStockRow);
+        holder.img = (ImageView) rowView.findViewById(R.id.imgRow);
         holder.tvName.setText(name[position]);
-        holder.tvStock.setText(stock[position]);
+        holder.tvStock.setText("Stock: " + stock[position]);
         holder.img.setImageResource(image[position]);
-        holder.img= (ImageView) rowView.findViewById(R.id.imgRow);
+
         rowView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

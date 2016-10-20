@@ -13,14 +13,23 @@
     <AutoCompleteTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="AutoCompleteTextView"
         android:id="@+id/acSearchProduct"/>
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/btAddToList"
+        android:text="@string/btAddToList"/>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@id/acSearchProduct"
+        android:layout_above="@id/btAddToList"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
         android:id="@android:id/list"/>
+
 </RelativeLayout>

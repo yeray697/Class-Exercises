@@ -10,14 +10,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.yrj.manageproduct.ILoginMvp;
+import com.example.yrj.manageproduct.model.User;
 
 /**
  * Class that implements a login
  * @author Yeray Ruiz
  * @version 1.0
  */
-public class LoginActivity extends AppCompatActivity implements ILoginMvp.View {
+public class Login_Activity extends AppCompatActivity implements ILoginMvp.View {
 
     private static final String TAG = "loginrelative";
     private ILoginMvp.Presenter loginMvp;

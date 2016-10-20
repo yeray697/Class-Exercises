@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 
+import com.example.yrj.manageproduct.model.User;
+
 import java.util.regex.Pattern;
 
 /**

@@ -1,9 +1,9 @@
 package com.example.yrj.manageproduct;
 
 import android.app.Application;
-import android.util.Log;
 
 import com.example.yrj.manageproduct.model.Product;
+import com.example.yrj.manageproduct.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
