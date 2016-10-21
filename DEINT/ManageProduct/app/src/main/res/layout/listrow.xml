@@ -4,40 +4,44 @@
     android:layout_height="match_parent"
     android:orientation="horizontal" >
 
-
-    <LinearLayout android:id="@+id/thumbnail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="3dip"
-        android:layout_alignParentLeft="true"
-        android:layout_marginRight="5dip">
-
-        <ImageView
-            android:id="@+id/imgRow"
-            android:layout_width="49dp"
-            android:layout_height="49dp"
-            android:src="@mipmap/ic_launcher"/>
-
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/imgRow"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        android:src="@mipmap/ic_launcher"/>
 
     <TextView
         android:id="@+id/tvNameRow"
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/thumbnail"
+        android:layout_toRightOf="@id/imgRow"
         android:textSize="18dp"
         android:text="TextView" />
 
-    <TextView
-        android:id="@+id/tvStockRow"
-        android:layout_gravity="center"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/thumbnail"
         android:layout_below="@id/tvNameRow"
-        android:layout_marginTop="10dp"
-        android:textSize="15dp"
-        android:text="TextView" />
+        android:layout_toRightOf="@id/imgRow"
+        android:id="@+id/llyStockPrice"
+        >
+        <TextView
+            android:id="@+id/tvStockRow"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:textSize="15dp"
+            android:text="TextView" />
+        <TextView
+            android:id="@+id/tvPriceRow"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="TextView" />
+    </LinearLayout>
+
 
 </RelativeLayout>

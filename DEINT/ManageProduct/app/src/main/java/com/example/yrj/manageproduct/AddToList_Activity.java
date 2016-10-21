@@ -1,12 +1,9 @@
 package com.example.yrj.manageproduct;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
-import android.provider.ContactsContract;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.yrj.manageproduct.interfaces.IListMvp;
+import com.example.yrj.manageproduct.presenter.ListPresenter;
 
 public class AddToList_Activity extends AppCompatActivity  implements IListMvp.View{
 

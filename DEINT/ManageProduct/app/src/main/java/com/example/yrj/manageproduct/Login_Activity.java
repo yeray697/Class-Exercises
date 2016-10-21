@@ -10,7 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.yrj.manageproduct.interfaces.ILoginMvp;
 import com.example.yrj.manageproduct.model.User;
+import com.example.yrj.manageproduct.presenter.LoginPresenter;
 
 /**
  * Class that implements a login

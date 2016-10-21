@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.yrj.manageproduct.model.CustomAdapter;
+import com.example.yrj.manageproduct.adapter.ProductAdapterA;
+import com.example.yrj.manageproduct.adapter.ProductAdapterB;
+import com.example.yrj.manageproduct.adapter.ProductAdapterC;
 import com.example.yrj.manageproduct.model.Product;
 
 public class ListProduct_Activity extends ListActivity{
@@ -28,7 +30,7 @@ public class ListProduct_Activity extends ListActivity{
         //adapter = new ArrayAdapter<Product>(this,android.R.layout.simple_list_item_1, ((LoginApplication) getApplication()).getProducts());
         //this.getListView().setAdapter(adapter);
 
-        this.getListView().setAdapter(new CustomAdapter(this,((LoginApplication) getApplication()).getProducts()));
+        updateList();
 
         btAddToList = (Button) findViewById(R.id.btAddToList);
         btAddToList.setOnClickListener(new View.OnClickListener() {
@@ -58,11 +60,14 @@ public class ListProduct_Activity extends ListActivity{
                 Product product = new Product(name, description, brand, dosage, price,  stock, image);
                 //Adding product
                 ((LoginApplication) getApplication()).addProduct(product);
-                //Updating list
-                this.getListView().setAdapter(new CustomAdapter(this,((LoginApplication) getApplication()).getProducts()));
+                updateList();
             }
             else
                 Toast.makeText(this, "Error: " + resultCode, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void updateList(){
+        this.getListView().setAdapter(new ProductAdapterC(this));
     }
 }
