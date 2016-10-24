@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">ManageProduct</string>
+    <string name="tvUserText">Usuario</string>
+    <string name="tvPassText">Contraseña</string>
+    <string name="cbRememberText">Recordar</string>
+    <string name="etPassHint">Introduce la contraseña</string>
+    <string name="etUserHint">Introduce el usuario</string>
+    <string name="btSubmitText">Login</string>
+    <string name="btAddToList">Añadir producto</string>
+    <string name="etNameHint">Nombre del producto</string>
+    <string name="etDescriptionHint">Descripción del producto</string>
+    <string name="etBrandHint">Marca del producto</string>
+    <string name="etDosageHint">Dosis del producto</string>
+    <string name="etPriceHint">Precio del producto</string>
+    <string name="etStockHint">Stock del producto</string>
+    <string name="btSaveText">Guardar</string>
+    <string name="btPhotoText">Seleccionar una foto</string>
+    <string name="tvPhotoText">No has seleccionado ninguna foto</string>
+    <string name="data_empty_photo">No has seleccionado ninguna foto</string>
+</resources>
