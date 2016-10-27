@@ -16,16 +16,21 @@
 <fullyQualifiedTypeName name="java.util.concurrent.atomic.AtomicInteger"/>
 <fullyQualifiedTypeName name="yrj.dam.psp.DosMutex"/>
 <fullyQualifiedTypeName name="yrj.dam.psp.GlobalVar"/>
-<fullyQualifiedTypeName name="java.lang.Override"/>
 <fullyQualifiedTypeName name="java.lang.Object"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="dam.psp.HilosExclusionMutua"/>
 <fullyQualifiedTypeName name="dam.psp.DosMutex"/>
 <fullyQualifiedTypeName name="dam.psp.GlobalVar"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="yrj.dam.HiloB"/>
 <fullyQualifiedTypeName name="yrj.dam.HiloA"/>
 <fullyQualifiedTypeName name="yrj.dam.Inutil"/>
+<fullyQualifiedTypeName name="org.omg.PortableServer.ServantActivator"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="yrj.dam.Saludo"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="yrj.dam.Profesor"/>
+<fullyQualifiedTypeName name="yrj.dam.Alumno"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="java.lang.InterruptedException"/>
 </qualifiedTypeNameHistroy>
