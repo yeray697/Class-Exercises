@@ -1,5 +1,6 @@
 package com.example.yrj.manageproductrecycler.model;
 
+import java.util.Comparator;
 import java.util.Locale;
 import java.util.UUID;
 
@@ -17,6 +18,31 @@ public class Product implements Comparable<Product> {
     private double mPrice;
     private int mStock;
     private int mImage;
+
+    public static final Comparator<Product> PRICE_COMPARATOR = new Comparator<Product>() {
+        @Override
+        public int compare(Product p1, Product p2) {
+            return Double.compare(p1.getPrice(),p2.getPrice());
+        }
+    };
+    public static final Comparator<Product> NAME_ASC_COMPARATOR = new Comparator<Product>() {
+        @Override
+        public int compare(Product p1, Product p2) {
+            return p1.getName().compareTo(p2.getName());
+        }
+    };
+    public static final Comparator<Product> NAME_DESC_COMPARATOR = new Comparator<Product>() {
+        @Override
+        public int compare(Product p1, Product p2) {
+            return -1 * p1.getName().compareTo(p2.getName());
+        }
+    };
+    public static final Comparator<Product> STOCK_COMPARATOR = new Comparator<Product>() {
+        @Override
+        public int compare(Product p1, Product p2) {
+            return Double.compare(p1.getStock(),p2.getStock());
+        }
+    };
 
     public Product(String mName, String mDescription, String mBrand, String mDosage, double mPrice, int mStock, int mImage){
         this.mId = UUID.randomUUID().toString();
@@ -124,10 +150,11 @@ public class Product implements Comparable<Product> {
     @Override
     public int compareTo(Product p) {
         //TODO
-        int result;
-        if ((result = this.getName().compareTo(p.getName())) == 0) {
-            if ((result = this.getBrand().compareTo(p.getBrand())) == 0) {
-
+        int result = this.getName().compareTo(p.getName());
+        if (result == 0) {
+            result = this.getBrand().compareTo(p.getBrand());
+            if (result == 0) {
+                result = this.getDosage().compareTo(p.getDosage());
             }
         }
 

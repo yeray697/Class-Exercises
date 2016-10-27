@@ -69,5 +69,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/btSubmit"
         android:layout_below="@id/cbRemember"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/btlogin"/>
 </RelativeLayout>

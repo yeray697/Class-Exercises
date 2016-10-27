@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.example.yrj.manageproductrecycler.interfaces.IProductMvp;
 import com.example.yrj.manageproductrecycler.presenter.ProductPresenter;
 
-public class AddToList_Activity extends AppCompatActivity  implements IProductMvp.View{
+public class AddToList_Activity extends AppCompatActivity implements IProductMvp.View{
 
     private final int SELECT_IMAGE = 2;
     private final int TAKE_PICTURE = 3;

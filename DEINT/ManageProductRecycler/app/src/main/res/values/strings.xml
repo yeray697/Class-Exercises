@@ -17,4 +17,8 @@
     <string name="btPhotoText">Seleccionar una foto</string>
     <string name="tvPhotoText">No has seleccionado ninguna foto</string>
     <string name="data_empty_photo">No has seleccionado ninguna foto</string>
+    <string name="action_add_product_title">Añadir producto</string>
+    <string name="action_sort_alphabetically_title">Ordenar alfabéticamente</string>
+    <string name="action_settings_general_title">Configuración general</string>
+    <string name="action_settings_account_title">Configuración de la cuenta</string>
 </resources>

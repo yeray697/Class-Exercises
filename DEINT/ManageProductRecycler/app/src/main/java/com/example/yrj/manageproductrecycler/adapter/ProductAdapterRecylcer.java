@@ -2,6 +2,7 @@ package com.example.yrj.manageproductrecycler.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 import com.example.yrj.manageproductrecycler.LoginApplication;
 import com.example.yrj.manageproductrecycler.R;
 import com.example.yrj.manageproductrecycler.model.Product;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,10 +24,12 @@ public class ProductAdapterRecylcer extends RecyclerView.Adapter<ProductAdapterR
 
     private List<Product> products;
     private Context context;
+    String order = "DES";
 
     public ProductAdapterRecylcer (Context context){
         this.context = context;
-        this.products = ((LoginApplication) context.getApplicationContext()).getProducts();
+        this.products = new ArrayList<Product>();
+        sortProducts();
     }
     @Override
     public ProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -60,4 +65,16 @@ public class ProductAdapterRecylcer extends RecyclerView.Adapter<ProductAdapterR
             tvPrice = (TextView) itemView.findViewById(R.id.tvPriceRow);
         }
     }
+
+    public void sortProducts(){
+        if (order == "ASC")
+            order = "DES";
+        else
+            order = "ASC";
+        products.clear();
+        products.addAll(((LoginApplication) context.getApplicationContext()).getOrderProductsByName(order));
+
+        notifyDataSetChanged();
+    }
+
 }
