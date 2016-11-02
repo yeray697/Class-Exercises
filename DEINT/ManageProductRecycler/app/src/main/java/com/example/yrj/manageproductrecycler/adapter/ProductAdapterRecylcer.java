@@ -8,12 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.yrj.manageproductrecycler.LoginApplication;
 import com.example.yrj.manageproductrecycler.R;
 import com.example.yrj.manageproductrecycler.model.Product;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -24,11 +26,12 @@ public class ProductAdapterRecylcer extends RecyclerView.Adapter<ProductAdapterR
 
     private List<Product> products;
     private Context context;
-    String order = "DES";
+    Boolean order = false;
 
     public ProductAdapterRecylcer (Context context){
         this.context = context;
         this.products = new ArrayList<Product>();
+        this.products = ((LoginApplication)context.getApplicationContext()).getProducts();
         sortProducts();
     }
     @Override
@@ -50,7 +53,7 @@ public class ProductAdapterRecylcer extends RecyclerView.Adapter<ProductAdapterR
         return products.size();
     }
 
-    public static class ProductViewHolder extends RecyclerView.ViewHolder{
+    public static class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 
         ImageView img;
         TextView tvName;
@@ -63,17 +66,28 @@ public class ProductAdapterRecylcer extends RecyclerView.Adapter<ProductAdapterR
             tvName = (TextView) itemView.findViewById(R.id.tvNameRow);
             tvStock = (TextView) itemView.findViewById(R.id.tvStockRow);
             tvPrice = (TextView) itemView.findViewById(R.id.tvPriceRow);
+            itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(v.getContext(), tvName.getText()+": on click", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            Toast.makeText(v.getContext(), tvName.getText()+": on long click", Toast.LENGTH_SHORT).show();
+            return false;
         }
     }
 
     public void sortProducts(){
-        if (order == "ASC")
-            order = "DES";
+        order = !order;
+        if (order)
+            Collections.sort(products, Product.NAME_ASC_COMPARATOR);
         else
-            order = "ASC";
-        products.clear();
-        products.addAll(((LoginApplication) context.getApplicationContext()).getOrderProductsByName(order));
-
+            Collections.sort(products, Product.NAME_DESC_COMPARATOR);
         notifyDataSetChanged();
     }
 

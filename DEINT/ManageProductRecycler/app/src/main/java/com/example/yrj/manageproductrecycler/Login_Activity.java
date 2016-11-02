@@ -1,5 +1,6 @@
 package com.example.yrj.manageproductrecycler;
 
+import android.graphics.Typeface;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,6 +32,7 @@ public class Login_Activity extends AppCompatActivity implements ILoginMvp.View 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        Typeface font = Typeface.createFromAsset(getAssets(),"hipsterfont.otf");
         loginMvp = new LoginPresenter(this); //Presenter has a reference to the view
         //Setting controls
         etUser = (EditText) findViewById(R.id.etUser);
@@ -39,6 +41,11 @@ public class Login_Activity extends AppCompatActivity implements ILoginMvp.View 
         tilPass = (TextInputLayout) findViewById(R.id.tilPass);
         btSubmit = (Button) findViewById(R.id.btSubmit);
         //Events
+        etUser.setTypeface(font);
+        etPass.setTypeface(font);
+        tilUser.setTypeface(font);
+        tilPass.setTypeface(font);
+        btSubmit.setTypeface(font);
         btSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

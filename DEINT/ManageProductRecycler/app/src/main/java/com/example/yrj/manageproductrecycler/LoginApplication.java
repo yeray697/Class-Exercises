@@ -57,18 +57,6 @@ public class LoginApplication extends Application {
     public List<Product> getProducts(){
         return products;
     }
-    public List<Product> getOrderProductsByName(String order){
-        ArrayList<Product> cloneAux;
-        if (order == "ASC"){
-            cloneAux = (ArrayList<Product>)products.clone();
-            Collections.sort(cloneAux, Product.NAME_ASC_COMPARATOR);
-        } else { //order == "DES"
-            cloneAux = (ArrayList<Product>)products.clone();
-            Collections.sort(cloneAux, Product.NAME_DESC_COMPARATOR);
-        }
-        //Collections.sort(products,(p1,p2) ->Double.compare(p1.getPrice(),p2.getPrice()));
-        return cloneAux;
-    }
 
     public boolean addProduct(Product product){
         boolean result = false;
