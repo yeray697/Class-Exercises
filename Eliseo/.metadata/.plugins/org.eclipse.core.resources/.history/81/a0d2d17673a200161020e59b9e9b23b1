@@ -87,6 +87,7 @@ class Escritor extends Thread{
 		 * Ésto funciona ya que es una operación atómica
 		 * this.cFichero.println(contenido);
 		 */
-		this.cFichero.println(contenido);
+		this.cFichero.print(contenido);
+		this.cFichero.println("\n");
 	}
 }

@@ -41,24 +41,19 @@ public class PruebaFicheroSincronizado {
 		
 		String parrafo1 = "¡Ser, o no ser, esa es la cuestión! ¿Qué debe más dignamente optar...?";
 		String parrafo2 = "En un lugar de la Mancha, de cuyo nombre no quiero acordarme...";
-		String parrafo3 = "Quisiera ser pirata, no por el oro ni la plata, sino por ese tesoro...";
 		
 		Escritor cervantes = new Escritor(cFichero);
 		Escritor shakespeare = new Escritor(cFichero);
-		Escritor calico = new Escritor(cFichero);
 		
 		shakespeare.fraseAdd(parrafo1);
 		cervantes.fraseAdd(parrafo2);
-		calico.fraseAdd(parrafo3);
 		
 		shakespeare.start();
 		cervantes.start();
-		calico.start();
 		
 		try {
 			shakespeare.join();
 			cervantes.join();
-			calico.join();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -88,5 +83,6 @@ class Escritor extends Thread{
 		 * this.cFichero.println(contenido);
 		 */
 		this.cFichero.println(contenido);
+		//this.cFichero.print(contenido);
 	}
 }
