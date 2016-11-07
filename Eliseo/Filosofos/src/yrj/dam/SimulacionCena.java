@@ -9,10 +9,10 @@ class Palillo {
 		numero = x;
 		enUso = false;
 	}
-	public void coger(){
+	public synchronized void coger(){
 		enUso = true;
 	}
-	public void soltar(){
+	public synchronized void soltar(){
 		enUso = false;
 	}
 }
