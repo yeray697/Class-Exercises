@@ -21,4 +21,16 @@
     <string name="action_sort_alphabetically_title">Ordenar alfabéticamente</string>
     <string name="action_settings_general_title">Configuración general</string>
     <string name="action_settings_account_title">Configuración de la cuenta</string>
+    <string name="btSubmitSignUp_text">Ok</string>
+    <string name="cbPrivacy_text">He leído y acepto la política de privacidad</string>
+    <string name="etBusiness_text">Nombre de la empresa</string>
+    <string name="rbBusiness_text">Empresa</string>
+    <string name="rbPart_text">Particular</string>
+    <string name="tvUserType_text">Tipo de usuario</string>
+    <string name="tvCity_text">Localidad</string>
+    <string name="tvCounty_text">Provincia</string>
+    <string name="etEmail_text">Dirección de correo</string>
+    <string name="etPassSignUp_text">Contraseña</string>
+    <string name="etUserSignUp_text">Nombre de usuario</string>
+    <string name="btSignUp">Registrarse</string>
 </resources>

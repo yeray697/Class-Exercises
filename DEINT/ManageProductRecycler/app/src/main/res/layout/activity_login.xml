@@ -62,14 +62,26 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"/>
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/cbRemember"
+    android:gravity="center">
 
     <Button
         android:text="@string/btSubmitText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btSubmit"
-        android:layout_below="@id/cbRemember"
-        android:layout_centerHorizontal="true"
         android:background="@drawable/setbtlogin"
         />
+    <Button
+        android:layout_marginLeft="10dp"
+        android:text="@string/btSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btSignUp"
+        android:background="@drawable/setbtlogin"
+        />
+</LinearLayout>
 </RelativeLayout>
