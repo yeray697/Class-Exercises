@@ -154,6 +154,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/btSubmit"
             android:text="@string/btSubmitSignUp_text"
-            android:onClick="signup"/>
+            android:onClick="signUp"/>
     </LinearLayout>
 </ScrollView>
