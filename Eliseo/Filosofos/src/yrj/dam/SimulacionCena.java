@@ -10,10 +10,22 @@ class Palillo {
 		enUso = false;
 	}
 	public synchronized void coger(){
+		while (enUso) {
+			System.out.println("Palillo " + numero + " ocupado, espera");
+			try {
+				this.wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		enUso = true;
+		System.out.println("Palillo " + numero + " ha sido cogido!");
 	}
 	public synchronized void soltar(){
 		enUso = false;
+		System.out.println("Palillo " + numero + " ha sido soltado");
+		this.notify();
 	}
 }
 class Cena{
@@ -21,22 +33,23 @@ class Cena{
 	int comensales = 0;
 	public Cena(int invitados) {
 		this.comensales = invitados;
+		palillos = new Palillo[this.comensales];
+		for (int i = 0; i < palillos.length; i++) {
+			palillos[i] = new Palillo(i);
+			
+		}
 	}
 
-	public int cogerPalilloDer(int x){
-		return 0;
+	public Palillo cogerPalillo(int x){
+		return palillos[x];
+	}
+	
+	public int cogerPalilloDer(int x) {
+		return (x + 1) %comensales;
 	}
 
 	public int cogerPalilloIzq(int x){
-		return 0;
-	}
-
-	public int soltarPalilloDer(int x){
-		return 0;
-	}
-
-	public int soltarPalilloIzq(int x){
-		return 0;
+		return x;
 	}
 }
 
@@ -45,10 +58,12 @@ class Filosofo extends Thread{
 	private int pizq, pder;
 	private int numero; //Posición en la mesa
 	private int veces; //Veces que va a cenar
-	public Filosofo(int num, int almuerzos) {
+	public Filosofo(int num, int almuerzos, Cena unaCena) {
 		this.numero = num;
 		this.veces = almuerzos;
-		
+		this.cena = unaCena;
+		pizq = cena.cogerPalilloIzq(this.numero);
+		pder = cena.cogerPalilloDer(this.numero);
 	}
 	
 	public void	pensar() {
@@ -57,29 +72,31 @@ class Filosofo extends Thread{
 				maximum = 1000;
 		System.out.println("Filósofo "+numero+" está pensando");
 		randomSleep(minimum, maximum);
-		//System.out.println("Filósofo "+numero+" ha terminado de pensar");
+		System.out.println("Filósofo "+numero+" ha terminado de pensar y tiene hambre");
 	}
 
 	public void	cogerPalillos() {
-		cena.cogerPalilloDer(pder);
-		System.out.println("Filósofo "+numero+" ha cogido el palillo derecho");	
-		cena.cogerPalilloIzq(pizq);
-		System.out.println("Filósofo "+numero+" ha soltado el palillo izquierdo");	
-		
+		if (numero % 2 == 0) {
+			cena.cogerPalillo(pizq).coger();
+			cena.cogerPalillo(pder).coger();
+		} else {
+			cena.cogerPalillo(pizq).coger();
+			cena.cogerPalillo(pder).coger();
+			//cena.cogerPalillo(pizq).coger();
+		}		
 	}
 	public void	comer() {
 		//Tiempo aleatorio entre 1 y 2000 ms
-		int minimum = 1,
-				maximum = 2000;
+		int minimum = 3,
+				maximum = 5000;
 		System.out.println("Filósofo "+numero+" está comiendo");
 		randomSleep(minimum, maximum);
 		//System.out.println("Filósofo "+numero+" ha terminado de comer");
 	}
 	public void soltarPalillos(){
-		cena.soltarPalilloIzq(pizq);
-		System.out.println("Filósofo "+numero+" ha soltado el palillo izquierdo");	
-		cena.soltarPalilloDer(pder);
-		System.out.println("Filósofo "+numero+" ha soltado el palillo derecho");	
+		System.out.println("Filósofo "+numero+" suelta sus palillos");
+		cena.cogerPalillo(pizq).soltar();
+		cena.cogerPalillo(pder).soltar();
 	}
 	
 	@Override
@@ -93,7 +110,7 @@ class Filosofo extends Thread{
 	}
 
 	private void randomSleep(int minimum, int maximum) {
-		int randomNum = minimum + (int)(Math.random() * maximum); 
+		int randomNum = minimum + (int)(Math.random() * (maximum + 1)); 
 		try {
 			Thread.sleep(randomNum);
 		} catch (InterruptedException e) {
@@ -110,8 +127,18 @@ public class SimulacionCena {
 		int almuerzos = Integer.parseInt(args[1]); //Cantidad de veces que van a comer
 		
 		Cena cena = new Cena(comensales);
+		Filosofo[] filosofos = new Filosofo[comensales];
 		for (int i = 0; i < comensales; i++) {
-			new Filosofo(i, almuerzos);
+			filosofos[i] = new Filosofo(i, almuerzos, cena);
+			filosofos[i].start();
+		}
+		for (int i = 0; i < comensales; i++) {
+			try {
+				filosofos[i].join();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 
