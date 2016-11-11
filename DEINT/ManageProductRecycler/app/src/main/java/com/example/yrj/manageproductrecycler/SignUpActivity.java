@@ -11,20 +11,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.yrj.manageproductrecycler.interfaces.ISignUp;
+import com.example.yrj.manageproductrecycler.interfaces.ISignUpMvp;
 import com.example.yrj.manageproductrecycler.presenter.SignUpPresenter;
 
-import java.util.ArrayList;
+public class SignUpActivity extends AppCompatActivity implements ISignUpMvp.View{
 
-public class SignUpActivity extends AppCompatActivity implements ISignUp.View{
-
-    ISignUp.Presenter presenter;
+    ISignUpMvp.Presenter presenter;
     Spinner spCounty;
     Spinner spCity;
     RadioGroup rgType;
@@ -106,6 +103,7 @@ public class SignUpActivity extends AppCompatActivity implements ISignUp.View{
                         spCity.setAdapter(adapterCity);
                         break;
                     case R.id.spCity:
+                        showCitySelected();
                         break;
                 }
             }
@@ -119,6 +117,16 @@ public class SignUpActivity extends AppCompatActivity implements ISignUp.View{
         spCounty.setAdapter(adapterCounty);
 
         spCounty.setOnItemSelectedListener(spinnerListener);
+        spCity.setOnItemSelectedListener(spinnerListener);
+    }
+
+    private void showCitySelected() {
+        Toast.makeText(getApplicationContext(),
+                String.format(
+                        getResources().getString(R.string.message),
+                        spCity.getSelectedItem().toString(),
+                        spCounty.getSelectedItem().toString()),
+                Toast.LENGTH_SHORT).show();
     }
 
     @Override

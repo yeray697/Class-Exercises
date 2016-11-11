@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.yrj.manageproductrecycler.interfaces.ILoginMvp;
+import com.example.yrj.manageproductrecycler.interfaces.IValidateAccount;
 import com.example.yrj.manageproductrecycler.model.User;
 import com.example.yrj.manageproductrecycler.presenter.LoginPresenter;
 
@@ -21,10 +21,10 @@ import com.example.yrj.manageproductrecycler.presenter.LoginPresenter;
  * @author Yeray Ruiz
  * @version 1.0
  */
-public class Login_Activity extends AppCompatActivity implements ILoginMvp.View {
+public class Login_Activity extends AppCompatActivity implements IValidateAccount.View {
 
     private static final String TAG = "loginrelative";
-    private ILoginMvp.Presenter loginMvp;
+    private IValidateAccount.Presenter loginMvp;
     private EditText etUser, etPass;
     private TextInputLayout tilUser, tilPass;
     private Button btSubmit;
@@ -109,15 +109,19 @@ public class Login_Activity extends AppCompatActivity implements ILoginMvp.View 
         String user = etUser.getText().toString();
         String pass = etPass.getText().toString();
         //Checking credentials. If there is an error, a Toast will appear
-        loginMvp.validateCredentials(user,pass);
+
+        if (IValidateAccount.Presenter.validateUser(user) == IValidateAccount.Pre)
     }
 
     /**
      * Method implemented that if there is an error, it will show it on a Toast
-     * @param messageError Error that will show
+     * @param idMessageError Error's id that will show
      */
     @Override
-    public void setMessageError(String messageError, int idView) {
+    public void setMessageError(int idMessageError, int idView) {
+        String messageError = "";
+        if (idMessageError != -1)
+            messageError = getResources().getString(idMessageError);
         //Toast.makeText(this, messageError, Toast.LENGTH_SHORT).show();
         switch (idView){
             case R.id.tilPass:

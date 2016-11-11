@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.text.TextUtils;
 
 import com.example.yrj.manageproductrecycler.interfaces.IProductMvp;
-import com.example.yrj.manageproductrecycler.interfaces.ILoginMvp;
 import com.example.yrj.manageproductrecycler.R;
 
 /**

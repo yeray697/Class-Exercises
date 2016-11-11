@@ -8,13 +8,13 @@ public class BufferCircular implements IBufer {
 	private int posEscritura = 0;
 	
 	@Override
-	public void escribir(int valor) {
+	public synchronized void escribir(int valor) {
 		String hilollamador = Thread.currentThread().getName();
 		while (contadorOcupado == bufer.length) {
-			System.out.println(hilollamador + " trata de escribir");
-			mostrarEstado("Bufer lleno. "+ hilollamador + " espera");
-			mostrarSalida();
 			try {
+				System.err.println(hilollamador + " trata de escribir");
+				mostrarEstado("Bufer lleno. "+ hilollamador + " espera");
+				mostrarSalida();
 				wait();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
@@ -30,13 +30,14 @@ public class BufferCircular implements IBufer {
 	}
 
 	@Override
-	public int leer() {
+	public synchronized int leer() {
 		String hilollamador = Thread.currentThread().getName();
+		
 		while (contadorOcupado == 0) {
-			System.out.println(hilollamador + " trata de leer");
-			mostrarEstado("Bufer vacío. "+ hilollamador + " debe esperar");
-			mostrarSalida();
 			try {
+				System.err.println(hilollamador + " trata de leer");
+				mostrarEstado("\nBufer vacío. "+ hilollamador + " debe esperar");
+				mostrarSalida();
 				wait();
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
@@ -54,14 +55,35 @@ public class BufferCircular implements IBufer {
 
 	@Override
 	public void mostrarEstado(String cadena) {
-		//TODO no me ha dado tiempo :S
+		StringBuffer linea = new StringBuffer(cadena);
+		linea.setLength(80);
+		linea.append(this.bufer + " " + contadorOcupado);
+		System.out.println(linea + "\n");
 	}
 
 	@Override
-	public void mostrarSalida() {
+	public String mostrarSalida() {
+		String salida = "(huecos ocupados: " + contadorOcupado + ")\nhuecos: ";
 		for (int i = 0; i < bufer.length; i++) {
-//TODO no me ha dado tiempo :S
-			System.out.println("");	
+			salida += "  " + bufer[i] + " ";
 		}
+		salida += "\n	";
+		for (int i = 0; i < bufer.length; i++) {
+			salida += "---- ";
+		}
+		salida += "\n	";
+		for (int i = 0; i < bufer.length; i++) {
+			if (i == posEscritura && posEscritura == posLectura) {
+				salida += " EL   ";
+			} else if (i == posEscritura) {
+				salida += " E   ";
+			} else if (i == posLectura) {
+				salida += " L   ";
+			} else
+				salida  += "   ";
+		}
+		salida += "\n	";
+		System.out.println(salida);
+		return salida;
 	}
 }

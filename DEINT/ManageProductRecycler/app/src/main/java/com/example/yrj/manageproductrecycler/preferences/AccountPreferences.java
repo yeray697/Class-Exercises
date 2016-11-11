@@ -12,29 +12,35 @@ import com.example.yrj.manageproductrecycler.interfaces.IPreferences;
 
 public class AccountPreferences implements IPreferences{
     private static AccountPreferences accountPreferences;
-    public static final String FILE = "";
-    public static final String USER = "user";
-    public static final String PASSWORD = "password";
-    private static Context contextApp;
+    private static final String USER = "user";
+    private static final String PASSWORD = "password";
+    private static final String EMAIL = "email";
+    private SharedPreferences sharedPreferences;
 
-    private AccountPreferences(){
-
+    private AccountPreferences(Context context){
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
     //Singleton
     public static IPreferences getInstance(Context context){
-        contextApp = context;
         if (accountPreferences == null){
-            accountPreferences = new AccountPreferences();
+            accountPreferences = new AccountPreferences(context);
         }
         return accountPreferences;
     }
 
-    public static void putUser(String user){
+    public void putUser(String user){
         getEditor().putString(USER, user).apply();
     }
 
-    private static SharedPreferences.Editor getEditor(){
-        SharedPreferences sharedPreferences = null;
+    public void putPassword(String password){
+        getEditor().putString(PASSWORD, password).apply();
+    }
+
+    public void putEmail(String email){
+        getEditor().putString(EMAIL, email).apply();
+    }
+
+    private SharedPreferences.Editor getEditor(){
         return sharedPreferences.edit();
     }
 }

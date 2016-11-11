@@ -6,7 +6,7 @@ import android.net.Uri;
  * Created by usuario on 10/11/16.
  */
 
-public interface ISignUp {
+public interface ISignUpMvp extends IValidateUser {
     int CORRECT = 0;
     int USER_EMPTY = 1;
     int EMAIL_EMPTY = 2;
@@ -21,6 +21,6 @@ public interface ISignUp {
     }
     interface Presenter{
 
-        int validateCredentials(String user, String email, String pass, String county, String city, boolean isBusinessType, String businessName, boolean privacyAccepted);
+        //int validateCredentials(String user, String email, String pass, String county, String city, boolean isBusinessType, String businessName, boolean privacyAccepted);
     }
 }

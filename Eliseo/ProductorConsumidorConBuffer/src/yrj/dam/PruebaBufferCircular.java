@@ -2,6 +2,7 @@ package yrj.dam;
 
 class Productor extends Thread{
 	private IBufer compartido;
+	
 	public Productor(IBufer elBufer) {
 		super("Productor");
 		compartido = elBufer;
@@ -17,7 +18,7 @@ class Productor extends Thread{
 				e.printStackTrace();
 			}
 		}
-		System.out.println(getName()+" terminó de producir datos");
+		System.out.println(getName() + " terminó de producir datos");
 	}
 }class Consumidor extends Thread{
 	private IBufer compartido;
@@ -48,12 +49,15 @@ public class PruebaBufferCircular {
 		IBufer elBuffer = new BufferCircular();
 		Productor prod = new Productor(elBuffer);
 		Consumidor consu= new Consumidor(elBuffer);
+		Consumidor consu2= new Consumidor(elBuffer);
 		
 		prod.start();
 		consu.start();
+		consu2.start();
 		try {
 			prod.join();
 			consu.join();
+			consu2.join();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
