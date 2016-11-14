@@ -21,6 +21,6 @@ public interface ISignUpMvp extends IValidateUser {
     }
     interface Presenter{
 
-        //int validateCredentials(String user, String email, String pass, String county, String city, boolean isBusinessType, String businessName, boolean privacyAccepted);
+        //int validateCredentialsLogin(String user, String email, String pass, String county, String city, boolean isBusinessType, String businessName, boolean privacyAccepted);
     }
 }

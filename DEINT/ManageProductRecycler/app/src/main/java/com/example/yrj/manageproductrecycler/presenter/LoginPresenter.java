@@ -4,7 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.example.yrj.manageproductrecycler.Product_Activity;
+import com.example.yrj.manageproductrecycler.R;
 import com.example.yrj.manageproductrecycler.interfaces.IValidateAccount;
+import com.example.yrj.manageproductrecycler.utils.ErrorMapUtils;
+import com.example.yrj.manageproductrecycler.model.Error;
 
 /**
  * Class that implements Login business rules:
@@ -17,7 +20,8 @@ import com.example.yrj.manageproductrecycler.interfaces.IValidateAccount;
 public class LoginPresenter implements IValidateAccount.Presenter {
     private IValidateAccount.View view;
     private int validateUser;
-    private int validatePassword;
+    private int validatePass;
+    private Context context;
 
     /**
      * Constructor
@@ -25,15 +29,23 @@ public class LoginPresenter implements IValidateAccount.Presenter {
      */
     public LoginPresenter(IValidateAccount.View view) {
         this.view = view;
+        this.context = (Context)view;
     }
 
-    public void validateCredentialsLogin(String user, String password){
+    public void validateCredentialsLogin(String user, String password) {
         validateUser = IValidateAccount.Presenter.validateUser(user);
-        validatePassword = IValidateAccount.Presenter.validatePass(password);
-        if (validateUser == IValidateAccount.OK && validatePassword == IValidateAccount.OK) {
-            Intent intent = new Intent((Context)view, Product_Activity.class);
-            ((Context)view).startActivity(intent);
+        if (validateUser == Error.OK) {
+            validatePass = IValidateAccount.Presenter.validatePass(password);
+            if(validatePass == Error.OK) {
+                Intent intent = new Intent(context, Product_Activity.class);
+                view.startActivity(intent);
+            } else {
+                String nameResource = ErrorMapUtils.getErrorMap(context).get(String.valueOf(validatePass));
+                view.setMessageError(nameResource, R.id.tilUser);
+            }
+        } else {
+            String nameResource = ErrorMapUtils.getErrorMap(context).get(String.valueOf(validateUser));
+            view.setMessageError(nameResource, R.id.tilPass);
         }
     }
-
 }

@@ -1,8 +1,10 @@
 package com.example.yrj.manageproductrecycler.interfaces;
 
+import android.content.Intent;
 import android.text.TextUtils;
 
 import com.example.yrj.manageproductrecycler.R;
+import com.example.yrj.manageproductrecycler.model.Error;
 
 import java.util.regex.Pattern;
 
@@ -11,33 +13,28 @@ import java.util.regex.Pattern;
  */
 
 public interface IValidateAccount{
-    int OK = 0;
-    int PASSWORD_DIGIT = 11;
-    int PASSWORD_CASE = 12;
-    int PASSWORD_LENGTH = 13;
-    int DATA_EMPTY = 14;
-
     int MINLENGTH = 8;
 
     interface View {
-        void setMessageError(int idMessageError, int idView);
+        void setMessageError(String nameResource, int idView);
+        void startActivity(Intent intent);
     }
     interface Presenter {
         static int validateUser(String user) {
-            int result = OK;
+            int result = Error.OK;
             int idErrorResource = -1;
             int idView = R.id.tilUser;
 
             if (TextUtils.isEmpty(user)) {
                 idErrorResource = R.string.data_empty_user;
-                result = DATA_EMPTY;
+                result = Error.DATA_EMPTY;
             }
 
             return result;
         }
 
         static int validatePass(String pass) {
-            int result = OK;
+            int result = Error.OK;
             Boolean numericMatch, uppercaseMatch, lowercaseMatch, minLength;
             //Boolean conditions
             minLength = pass.length() < IValidateAccount.MINLENGTH;
@@ -48,18 +45,19 @@ public interface IValidateAccount{
             //Checking conditions
 
             if (TextUtils.isEmpty(pass)) {
-                result = DATA_EMPTY;
+                result = Error.DATA_EMPTY;
             } else if (minLength) {
-                result = PASSWORD_LENGTH;
+                result = Error.PASSWORD_LENGTH;
             } else if (!numericMatch) {
-                result = PASSWORD_DIGIT;
+                result = Error.PASSWORD_DIGIT;
             } else if (!uppercaseMatch) {
-                result = PASSWORD_CASE;
+                result = Error.PASSWORD_CASE;
             } else if (!lowercaseMatch) {
-                result = PASSWORD_LENGTH;
+                result = Error.PASSWORD_LENGTH;
             }
 
             return result;
         }
+
     }
 }

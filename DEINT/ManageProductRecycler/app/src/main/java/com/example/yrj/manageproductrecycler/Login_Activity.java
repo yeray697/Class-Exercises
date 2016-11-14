@@ -2,6 +2,7 @@ package com.example.yrj.manageproductrecycler;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,8 +10,10 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 
 import com.example.yrj.manageproductrecycler.interfaces.IValidateAccount;
 import com.example.yrj.manageproductrecycler.model.User;
@@ -29,6 +32,7 @@ public class Login_Activity extends AppCompatActivity implements IValidateAccoun
     private TextInputLayout tilUser, tilPass;
     private Button btSubmit;
     private Button btSignUp;
+    private ViewGroup parent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,7 @@ public class Login_Activity extends AppCompatActivity implements IValidateAccoun
         Typeface font = Typeface.createFromAsset(getAssets(),"hipsterfont.otf");
         loginMvp = new LoginPresenter(this); //Presenter has a reference to the view
         //Setting controls
+        parent = (RelativeLayout) findViewById(R.id.activity_login);
         etUser = (EditText) findViewById(R.id.etUser);
         etPass = (EditText) findViewById(R.id.etPass);
         tilUser = (TextInputLayout) findViewById(R.id.tilUser);
@@ -109,26 +114,26 @@ public class Login_Activity extends AppCompatActivity implements IValidateAccoun
         String user = etUser.getText().toString();
         String pass = etPass.getText().toString();
         //Checking credentials. If there is an error, a Toast will appear
+        //TODO loginMvp.validateCredentialsLogin(user,pass);
 
-        if (IValidateAccount.Presenter.validateUser(user) == IValidateAccount.Pre)
     }
 
     /**
      * Method implemented that if there is an error, it will show it on a Toast
-     * @param idMessageError Error's id that will show
+     * @param nameResource Error that will show
+     * @param idView View where error is going to be set
      */
     @Override
-    public void setMessageError(int idMessageError, int idView) {
-        String messageError = "";
-        if (idMessageError != -1)
-            messageError = getResources().getString(idMessageError);
-        //Toast.makeText(this, messageError, Toast.LENGTH_SHORT).show();
+    public void setMessageError(String nameResource, int idView) {
+        String messageError = getResources().getString(
+                getResources().getIdentifier(nameResource,"string",getPackageName()));
         switch (idView){
-            case R.id.tilPass:
-                tilPass.setError(messageError);
-                break;
             case R.id.tilUser:
                 tilUser.setError(messageError);
+                Snackbar.make(parent,messageError,Snackbar.LENGTH_SHORT).show();
+                break;
+            case R.id.tilPass:
+                tilPass.setError(messageError);
                 break;
         }
     }
