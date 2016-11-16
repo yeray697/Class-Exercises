@@ -10,6 +10,7 @@ public class Error {
     public static final int PASSWORD_CASE = 11;
     public static final int PASSWORD_LENGTH = 12;
     public static final int DATA_EMPTY = 13;
+    public static final int EMAIL_INVALIDATE = 15;
 
     public static int code;
     public static String message;

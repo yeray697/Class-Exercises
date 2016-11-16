@@ -1,69 +1,49 @@
 package com.example.yrj.manageproductrecycler.presenter;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Patterns;
 
 import com.example.yrj.manageproductrecycler.R;
-import com.example.yrj.manageproductrecycler.interfaces.ISignUpMvp;
+import com.example.yrj.manageproductrecycler.interfaces.IValidateAccount;
+import com.example.yrj.manageproductrecycler.interfaces.IValidateUser;
+import com.example.yrj.manageproductrecycler.model.Error;
+import com.example.yrj.manageproductrecycler.model.User;
+import com.example.yrj.manageproductrecycler.utils.ErrorMapUtils;
 
 /**
  * Created by usuario on 10/11/16.
  */
 
-public class SignUpPresenter implements ISignUpMvp.Presenter{
+public class SignUpPresenter implements IValidateUser.Presenter, IValidateUser.PresenterUser{
     public static final int TOAST = -1;
-    ISignUpMvp.View view;
-    public SignUpPresenter(ISignUpMvp.View view){
+    IValidateUser.View view;
+    Context context;
+
+    public SignUpPresenter(IValidateUser.View view){
         this.view = view;
+        this.context = (Context)view;
     }
-
-    public int validateCredentials(String user, String email, String pass, String county, String city, boolean isBusinessType, String businessName, boolean privacyAccepted) {
-        String error = "";
-        int idView = -1;
-        int result = ISignUpMvp.CORRECT;
-
-        if (privacyAccepted){
-            if (TextUtils.isEmpty(user)){
-                result = ISignUpMvp.USER_EMPTY;
-                error = ((Context)view).getResources().getString(R.string.data_empty_signup);
-                idView = R.id.tilUser;
-            } else if (TextUtils.isEmpty(pass)){
-                result = ISignUpMvp.PASS_EMPTY;
-                error = ((Context)view).getResources().getString(R.string.data_empty_signup);
-                idView = R.id.tilPass;
-            } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-                result = ISignUpMvp.EMAIL_EMPTY;
-                error = ((Context)view).getResources().getString(R.string.invalid_email_signup);
-                idView = R.id.tilEmail;
-            } else if (TextUtils.isEmpty(county)){
-                result = ISignUpMvp.COUNTY_EMPTY;
-                error = ((Context)view).getResources().getString(R.string.data_empty_county_signup);
-                idView = TOAST;
-            } else if (TextUtils.isEmpty(city)){
-                result = ISignUpMvp.CITY_EMPTY;
-                error = ((Context)view).getResources().getString(R.string.data_empty_city_signup);
-                idView = TOAST;
-            } else {
-                if (isBusinessType){
-                    if (TextUtils.isEmpty(businessName)){
-                        result = ISignUpMvp.BUSINESS_NAME_EMPTY;
-                        error = ((Context)view).getResources().getString(R.string.data_empty_signup);
-                        idView = R.id.tilBusiness;
-                    } else {
-                        //All correct
-                    }
+    public boolean validateCredentials(String user,String pass, String email){
+        int error = IValidateUser.Presenter.validateUser(user);
+        if (error == Error.OK) {
+            error = IValidateUser.Presenter.validatePass(pass);
+            if (error == Error.OK){
+                error = IValidateUser.PresenterUser.validateEmail(email);
+                if (error == Error.OK) {
+                    // t0do correcto
                 } else {
-                    //All correct
+                    String nameResource = ErrorMapUtils.getErrorMap(context).get(String.valueOf(error));
+                    view.setMessageError(nameResource, R.id.tilEmail);
                 }
+            } else {
+                String nameResource = ErrorMapUtils.getErrorMap(context).get(String.valueOf(error));
+                view.setMessageError(nameResource, R.id.tilPass);
             }
         } else {
-            result = ISignUpMvp.PRIVACY_FALSE;
-            error = ((Context)view).getResources().getString(R.string.privacy_false_signup);
-            idView = TOAST;
+            String nameResource = ErrorMapUtils.getErrorMap(context).get(String.valueOf(error));
+            view.setMessageError(nameResource, R.id.tilUser);
         }
-        if (result != ISignUpMvp.CORRECT)
-            view.setMessageError(error,idView);
-        return result;
+        IValidateUser.PresenterUser.validateEmail(email);
+        return true;
     }
+
 }

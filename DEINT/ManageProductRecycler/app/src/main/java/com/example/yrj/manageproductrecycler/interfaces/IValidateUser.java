@@ -9,14 +9,14 @@ import com.example.yrj.manageproductrecycler.model.Error;
 
 public interface IValidateUser extends IValidateAccount {
 
-    int EMAIL_INVALIDATE = 15;
 
-    interface Presenter{
+    interface PresenterUser{
         static int validateEmail(String email){
             int result = Error.OK;
             if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
-                result = EMAIL_INVALIDATE;
+                result = Error.EMAIL_INVALIDATE;
             return result;
         }
+
     }
 }

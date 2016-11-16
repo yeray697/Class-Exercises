@@ -16,12 +16,12 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.yrj.manageproductrecycler.interfaces.ISignUpMvp;
+import com.example.yrj.manageproductrecycler.interfaces.IValidateUser;
 import com.example.yrj.manageproductrecycler.presenter.SignUpPresenter;
 
-public class SignUpActivity extends AppCompatActivity implements ISignUpMvp.View{
+public class SignUpActivity extends AppCompatActivity implements IValidateUser.View{
 
-    ISignUpMvp.Presenter presenter;
+    SignUpPresenter presenter;
     Spinner spCounty;
     Spinner spCity;
     RadioGroup rgType;
@@ -84,7 +84,7 @@ public class SignUpActivity extends AppCompatActivity implements ISignUpMvp.View
         boolean isBusinessType = rbBusiness.isChecked();
         String businessName = tilBusiness.getEditText().getText().toString();
         boolean privacyAccepted = cbPrivacy.isChecked();
-        presenter.validateCredentials(user,email,pass,county,city,isBusinessType,businessName,privacyAccepted);
+        presenter.validateCredentials(user,email,pass);
     }
 
     private void loadSpinnerCounty(){
