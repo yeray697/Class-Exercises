@@ -6,7 +6,6 @@ import com.example.yrj.manageproductrecycler.model.Product;
 import com.example.yrj.manageproductrecycler.model.User;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**

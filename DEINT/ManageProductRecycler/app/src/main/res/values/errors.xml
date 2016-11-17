@@ -17,4 +17,5 @@
     <string name="data_empty_city_signup">Selecciona una localidad</string>
     <string name="privacy_false_signup">No has aceptado los términos</string>
     <string name="invalid_email_signup">El email es inválido</string>
+    <string name="data_empty">El campo no puede estar vacío</string>
 </resources>

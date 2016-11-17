@@ -20,6 +20,7 @@ public class AccountPreferences implements IPreferences{
     private AccountPreferences(Context context){
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
+
     //Singleton
     public static IPreferences getInstance(Context context){
         if (accountPreferences == null){

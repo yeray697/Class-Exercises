@@ -11,4 +11,6 @@ import com.example.yrj.manageproductrecycler.preferences.AccountPreferences;
 public interface IPreferences {
 
     int MODE = Context.MODE_PRIVATE;
+
+    //static IPreferences getInstance(Context context);
 }

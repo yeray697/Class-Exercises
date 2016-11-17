@@ -1,6 +1,7 @@
 package com.example.yrj.manageproductrecycler;
 
 import android.content.res.TypedArray;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -30,6 +32,7 @@ public class SignUpActivity extends AppCompatActivity implements IValidateUser.V
     ArrayAdapter<CharSequence> adapterCounty, adapterCity;
     CheckBox cbPrivacy;
     RadioButton rbBusiness;
+    LinearLayout lySignUp;
 
     private AdapterView.OnItemSelectedListener spinnerListener;
     @Override
@@ -46,6 +49,7 @@ public class SignUpActivity extends AppCompatActivity implements IValidateUser.V
         tilBusiness = (TextInputLayout) findViewById(R.id.tilBusiness);
         cbPrivacy = (CheckBox) findViewById(R.id.cbPrivacy);
         rbBusiness = (RadioButton) findViewById(R.id.rbBusiness);
+        lySignUp = (LinearLayout) findViewById(R.id.lySignUp);
         rgType = (RadioGroup) findViewById(R.id.rgType);
         rgType.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -84,7 +88,9 @@ public class SignUpActivity extends AppCompatActivity implements IValidateUser.V
         boolean isBusinessType = rbBusiness.isChecked();
         String businessName = tilBusiness.getEditText().getText().toString();
         boolean privacyAccepted = cbPrivacy.isChecked();
-        presenter.validateCredentials(user,email,pass);
+        if (presenter.validateCredentials(user,pass,email,county, city, isBusinessType, businessName, privacyAccepted)) {
+
+        }
     }
 
     private void loadSpinnerCounty(){
@@ -129,11 +135,17 @@ public class SignUpActivity extends AppCompatActivity implements IValidateUser.V
                 Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * Method that show a message error
+     * @param messageError
+     * @param idView
+     */
     @Override
     public void setMessageError(String messageError, int idView) {
         switch (idView){
-            case SignUpPresenter.TOAST:
-                Toast.makeText(this, messageError, Toast.LENGTH_SHORT).show();
+            case SignUpPresenter.SNACKBAR:
+                Snackbar.make(lySignUp,messageError,Snackbar.LENGTH_SHORT).show();
+                //Toast.makeText(this, messageError, Toast.LENGTH_SHORT).show();
                 break;
             default:
                 ((TextInputLayout)findViewById(idView)).setError(messageError);

@@ -20,7 +20,9 @@ public interface IValidateAccount{
         void startActivity(Intent intent);
     }
     interface Presenter {
-        static int validateUser(String user) {
+        int validateUser(String user);
+        int validatePass(String pass);
+        /*static int validateUser(String user) {
             int result = Error.OK;
             int idErrorResource = -1;
             int idView = R.id.tilUser;
@@ -57,7 +59,7 @@ public interface IValidateAccount{
             }
 
             return result;
-        }
+        }*/
 
     }
 }

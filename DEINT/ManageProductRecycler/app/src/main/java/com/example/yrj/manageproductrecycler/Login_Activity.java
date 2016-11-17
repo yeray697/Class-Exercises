@@ -27,7 +27,7 @@ import com.example.yrj.manageproductrecycler.presenter.LoginPresenter;
 public class Login_Activity extends AppCompatActivity implements IValidateAccount.View {
 
     private static final String TAG = "loginrelative";
-    private IValidateAccount.Presenter loginMvp;
+    private LoginPresenter presenter;
     private EditText etUser, etPass;
     private TextInputLayout tilUser, tilPass;
     private Button btSubmit;
@@ -39,7 +39,7 @@ public class Login_Activity extends AppCompatActivity implements IValidateAccoun
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Typeface font = Typeface.createFromAsset(getAssets(),"hipsterfont.otf");
-        loginMvp = new LoginPresenter(this); //Presenter has a reference to the view
+        presenter = new LoginPresenter(this); //Presenter has a reference to the view
         //Setting controls
         parent = (RelativeLayout) findViewById(R.id.activity_login);
         etUser = (EditText) findViewById(R.id.etUser);
@@ -113,8 +113,8 @@ public class Login_Activity extends AppCompatActivity implements IValidateAccoun
     private void loginClick() {
         String user = etUser.getText().toString();
         String pass = etPass.getText().toString();
-        //Checking credentials. If there is an error, a Toast will appear
-        //TODO loginMvp.validateCredentialsLogin(user,pass);
+        //Checking credentials. If there is an error, a Toast will appears
+        presenter.validateCredentialsLogin(user,pass);
 
     }
 

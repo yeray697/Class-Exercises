@@ -75,7 +75,7 @@ public class ProductPresenter implements IProductMvp.Presenter {
             result = true;
         }
         //If there is an error, we set it on the view
-        if (isThereAnError != ILoginMvp.CORRECT) {
+        if (isThereAnError != IProductMvp.CORRECT) {
             view.setMessageError(error, idView);
         }
         return result;
