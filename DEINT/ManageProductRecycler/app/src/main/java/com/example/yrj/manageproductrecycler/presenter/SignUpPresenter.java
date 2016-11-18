@@ -82,11 +82,11 @@ public class SignUpPresenter implements IValidateUser.Presenter, IValidateUser.P
         return error;
     }
 
-    private void savePreferences() {
+    public void savePreferences(String user, String email, String pass) {
         AccountPreferences accountPreferences = (AccountPreferences) AccountPreferences.getInstance(context);
-        /*accountPreferences.putUser();
-        accountPreferences.putEmail();
-        accountPreferences.putPassword();*/
+        accountPreferences.putUser(user);
+        accountPreferences.putEmail(email);
+        accountPreferences.putPassword(pass);
     }
 
     @Override

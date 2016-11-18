@@ -4,28 +4,45 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.ListViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
+import com.example.yrj.manageproductrecycler.adapter.ProductAdapter;
 import com.example.yrj.manageproductrecycler.adapter.ProductAdapterRecylcer;
+import com.example.yrj.manageproductrecycler.interfaces.IProduct;
+import com.example.yrj.manageproductrecycler.model.Product;
 
 public class Product_Activity extends AppCompatActivity{
 
     private boolean order = false;
     private static final int ADDPRODUCT_REQUESTCODE = 0;
     private static final int EDITPRODUCT_REQUESTCODE = 1;
-    private ProductAdapterRecylcer adapter;
-    private RecyclerView rvProduct;
+    private ProductAdapter adapter;
+    private ListView lvProduct;
+    //private RecyclerView rvProduct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
-        adapter = new ProductAdapterRecylcer(this);
-        rvProduct = (RecyclerView) findViewById(R.id.rvProduct);
-        rvProduct.setLayoutManager(new LinearLayoutManager(this));
-        rvProduct.setAdapter(adapter);
+        adapter = new ProductAdapter(this);
+        lvProduct = (ListView) findViewById(R.id.lvProduct);
+        lvProduct.setAdapter(adapter);
+        lvProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable(IProduct.PRODUCT_KEY, (Product)parent.getItemAtPosition(position));
+                Intent intent = new Intent(Product_Activity.this, ManageProduct_Activity.class);
+                intent.putExtras(bundle);
+                startActivityForResult(intent,EDITPRODUCT_REQUESTCODE);
+            }
+        });
     }
 
     @Override
@@ -58,8 +75,16 @@ public class Product_Activity extends AppCompatActivity{
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         //If we edited or added a product, we update the list
-        if (requestCode == ADDPRODUCT_REQUESTCODE || requestCode == EDITPRODUCT_REQUESTCODE){
+        if (requestCode == ADDPRODUCT_REQUESTCODE ){
             if (resultCode == RESULT_OK){
+                Product product = (Product)data.getExtras().getSerializable(IProduct.PRODUCT_KEY);
+                ((ProductAdapter)lvProduct.getAdapter()).addProduct(product);
+            }
+        }
+        if (requestCode == EDITPRODUCT_REQUESTCODE) {
+            if (resultCode == RESULT_OK){
+                Product product = (Product)data.getExtras().getSerializable(IProduct.PRODUCT_KEY);
+                ((ProductAdapter)lvProduct.getAdapter()).editProduct(product);
 
             }
         }

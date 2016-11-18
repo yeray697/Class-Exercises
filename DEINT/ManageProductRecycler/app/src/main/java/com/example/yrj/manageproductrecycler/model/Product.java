@@ -1,5 +1,8 @@
 package com.example.yrj.manageproductrecycler.model;
 
+import com.example.yrj.manageproductrecycler.interfaces.IProduct;
+
+import java.io.Serializable;
 import java.util.Comparator;
 import java.util.Locale;
 import java.util.UUID;
@@ -9,7 +12,7 @@ import java.util.UUID;
  * @author Yeray Ruiz
  */
 
-public class Product implements Comparable<Product> {
+public class Product implements Comparable<Product>, Serializable, IProduct {
     private String mId;
     private String mName;
     private String mDescription;
@@ -53,6 +56,10 @@ public class Product implements Comparable<Product> {
         this.mPrice = mPrice;
         this.mStock = mStock;
         this.mImage = mImage;
+    }
+
+    public String getId() {
+        return mId;
     }
 
     public String getName() {

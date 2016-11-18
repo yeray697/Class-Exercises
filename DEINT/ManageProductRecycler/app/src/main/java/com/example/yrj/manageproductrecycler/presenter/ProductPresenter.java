@@ -4,10 +4,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
 
+import com.example.yrj.manageproductrecycler.interfaces.IProduct;
 import com.example.yrj.manageproductrecycler.interfaces.IProductMvp;
 import com.example.yrj.manageproductrecycler.R;
+import com.example.yrj.manageproductrecycler.model.Product;
 
 /**
  * Created by usuario on 20/10/16.
@@ -63,13 +66,12 @@ public class ProductPresenter implements IProductMvp.Presenter {
         }
         else { //If there is no error
             Intent returnIntent = new Intent();
-            returnIntent.putExtra("name",name);
-            returnIntent.putExtra("description",description);
-            returnIntent.putExtra("brand",brand);
-            returnIntent.putExtra("dosage", dosage);
-            returnIntent.putExtra("price", Double.parseDouble(price));
-            returnIntent.putExtra("stock",Integer.parseInt(stock));
-            returnIntent.putExtra("image",image);
+            Bundle bundle = new Bundle();
+
+            bundle.putSerializable(IProduct.PRODUCT_KEY,
+                    new Product(name, description, brand, String.valueOf(dosage),
+                            Double.valueOf(price), Integer.valueOf(stock), R.mipmap.ic_launcher));
+            returnIntent.putExtras(bundle);
             ((Activity)view).setResult(Activity.RESULT_OK,returnIntent);
             ((Activity)view).finish();
             result = true;

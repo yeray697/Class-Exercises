@@ -43,12 +43,10 @@ public class LoginPresenter implements IValidateAccount.Presenter {
                 Intent intent = new Intent(context, Product_Activity.class);
                 view.startActivity(intent);
             } else {
-                String nameResource = ErrorMapUtils.getErrorMap(context).get(String.valueOf(validatePass));
-                view.setMessageError(nameResource, R.id.tilUser);
+                view.setMessageError(Error.getMessageError(context, validatePass), R.id.tilPass);
             }
         } else {
-            String nameResource = ErrorMapUtils.getErrorMap(context).get(String.valueOf(validateUser));
-            view.setMessageError(nameResource, R.id.tilPass);
+            view.setMessageError(Error.getMessageError(context, validateUser), R.id.tilUser);
         }
     }
 
@@ -87,7 +85,7 @@ public class LoginPresenter implements IValidateAccount.Presenter {
         } else if (!uppercaseMatch) {
             result = Error.PASSWORD_CASE;
         } else if (!lowercaseMatch) {
-            result = Error.PASSWORD_LENGTH;
+            result = Error.PASSWORD_CASE;
         }
 
         return result;

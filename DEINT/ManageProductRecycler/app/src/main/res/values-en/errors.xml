@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="password_digit">Password must contain at least a digit</string>
-    <string name="password_length">Password length must be greater or equal than 8</string>
-    <string name="login_conexion">There is not connection</string>
-    <string name="password_case">Password must contain at least an uppercase and lowercase character</string>
-    <string name="data_empty_pass">Password can not be empty</string>
-    <string name="data_empty_user">Username can not be empty</string>
-</resources>

@@ -120,17 +120,15 @@ public class Login_Activity extends AppCompatActivity implements IValidateAccoun
 
     /**
      * Method implemented that if there is an error, it will show it on a Toast
-     * @param nameResource Error that will show
+     * @param messageError Error that will show
      * @param idView View where error is going to be set
      */
     @Override
-    public void setMessageError(String nameResource, int idView) {
-        String messageError = getResources().getString(
-                getResources().getIdentifier(nameResource,"string",getPackageName()));
+    public void setMessageError(String messageError, int idView) {
         switch (idView){
             case R.id.tilUser:
                 tilUser.setError(messageError);
-                Snackbar.make(parent,messageError,Snackbar.LENGTH_SHORT).show();
+                //Snackbar.make(parent,messageError,Snackbar.LENGTH_SHORT).show();
                 break;
             case R.id.tilPass:
                 tilPass.setError(messageError);

@@ -1,5 +1,6 @@
 package com.example.yrj.manageproductrecycler;
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
@@ -89,7 +90,10 @@ public class SignUpActivity extends AppCompatActivity implements IValidateUser.V
         String businessName = tilBusiness.getEditText().getText().toString();
         boolean privacyAccepted = cbPrivacy.isChecked();
         if (presenter.validateCredentials(user,pass,email,county, city, isBusinessType, businessName, privacyAccepted)) {
-
+            presenter.savePreferences(user,email,pass);
+            Intent intent = new Intent(SignUpActivity.this, Product_Activity.class);
+            startActivity(intent);
+            finish();
         }
     }
 
