@@ -1,16 +1,22 @@
 package com.example.yrj.manageproductrecycler;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.ListViewCompat;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.yrj.manageproductrecycler.adapter.ProductAdapter;
 import com.example.yrj.manageproductrecycler.adapter.ProductAdapterRecylcer;
@@ -24,6 +30,7 @@ public class Product_Activity extends AppCompatActivity{
     private static final int EDITPRODUCT_REQUESTCODE = 1;
     private ProductAdapter adapter;
     private ListView lvProduct;
+    private FloatingActionButton fabAdd;
     //private RecyclerView rvProduct;
 
     @Override
@@ -33,6 +40,23 @@ public class Product_Activity extends AppCompatActivity{
         adapter = new ProductAdapter(this);
         lvProduct = (ListView) findViewById(R.id.lvProduct);
         lvProduct.setAdapter(adapter);
+        registerForContextMenu( lvProduct );
+        /*lvProduct.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                //registerForContextMenu( view );
+                //openContextMenu( view );
+                return false;
+            }
+        });*/
+        fabAdd = (FloatingActionButton) findViewById(R.id.fabAdd);
+        fabAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Product_Activity.this, AddToList_Activity.class);
+                startActivityForResult(intent,ADDPRODUCT_REQUESTCODE);
+            }
+        });
         lvProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -49,10 +73,6 @@ public class Product_Activity extends AppCompatActivity{
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent;
         switch (item.getItemId()){
-            case R.id.action_add_product:
-                intent = new Intent(Product_Activity.this, AddToList_Activity.class);
-                startActivityForResult(intent,ADDPRODUCT_REQUESTCODE);
-                break;
             case R.id.action_sort_alphabetically:
                 sortAdapterAlphabetically();
                 break;
@@ -99,5 +119,38 @@ public class Product_Activity extends AppCompatActivity{
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_product,menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
+        menu.add(v.getId(), 1, 0, "Delete");
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case 1:
+                AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+                final int position = info.position;
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setCancelable(false)
+                        .setTitle("Cuidado")
+                        .setMessage("¿Seguro que quieres borrarlo?")
+                        .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                adapter.removeProduct(position);
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).show();
+                break;
+        }
+        return true;
     }
 }

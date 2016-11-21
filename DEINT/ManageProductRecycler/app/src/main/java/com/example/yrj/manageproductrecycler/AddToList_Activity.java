@@ -44,11 +44,8 @@ public class AddToList_Activity extends AppCompatActivity implements IProductMvp
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(listPresenter.validateCredentials(etName.getText().toString(), etDescription.getText().toString(), etBrand.getText().toString(),
-                        etDosage.getText().toString(), etPrice.getText().toString(), etStock.getText().toString(),photo)){
-                    //If true, product added properly
-                    finish();
-                }
+                listPresenter.validateCredentials(etName.getText().toString(), etDescription.getText().toString(), etBrand.getText().toString(),
+                        etDosage.getText().toString(), etPrice.getText().toString(), etStock.getText().toString(),photo);
             }
         });
         btPhoto.setOnClickListener(new View.OnClickListener() {

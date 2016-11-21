@@ -66,6 +66,12 @@ public class ProductAdapter extends ArrayAdapter<Product> {
 
     public void addProduct(Product product) {
         add(product);
+        notifyDataSetChanged();
+    }
+
+    public void removeProduct(int position) {
+        remove(getItem(position));
+        notifyDataSetChanged();
     }
 
     public void editProduct(Product product) {
