@@ -41,14 +41,6 @@ public class Product_Activity extends AppCompatActivity{
         lvProduct = (ListView) findViewById(R.id.lvProduct);
         lvProduct.setAdapter(adapter);
         registerForContextMenu( lvProduct );
-        /*lvProduct.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                //registerForContextMenu( view );
-                //openContextMenu( view );
-                return false;
-            }
-        });*/
         fabAdd = (FloatingActionButton) findViewById(R.id.fabAdd);
         fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,7 +115,9 @@ public class Product_Activity extends AppCompatActivity{
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
-        menu.add(v.getId(), 1, 0, "Delete");
+        if (v.getId() == R.id.lvProduct) {
+            menu.add(v.getId(), 1, 0, "Delete");
+        }
     }
 
     @Override
