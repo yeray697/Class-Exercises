@@ -1,5 +1,8 @@
 package com.example.yrj.manageproductrecycler.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.example.yrj.manageproductrecycler.interfaces.IProduct;
 
 import java.io.Serializable;
@@ -12,7 +15,7 @@ import java.util.UUID;
  * @author Yeray Ruiz
  */
 
-public class Product implements Comparable<Product>, Serializable, IProduct {
+public class Product implements Comparable<Product>, IProduct, Parcelable{
     private String mId;
     private String mName;
     private String mDescription;
@@ -57,6 +60,29 @@ public class Product implements Comparable<Product>, Serializable, IProduct {
         this.mStock = mStock;
         this.mImage = mImage;
     }
+
+    protected Product(Parcel in) {
+        mId = in.readString();
+        mName = in.readString();
+        mDescription = in.readString();
+        mBrand = in.readString();
+        mDosage = in.readString();
+        mPrice = in.readDouble();
+        mStock = in.readInt();
+        mImage = in.readInt();
+    }
+
+    public static final Creator<Product> CREATOR = new Creator<Product>() {
+        @Override
+        public Product createFromParcel(Parcel in) {
+            return new Product(in);
+        }
+
+        @Override
+        public Product[] newArray(int size) {
+            return new Product[size];
+        }
+    };
 
     public String getId() {
         return mId;
@@ -167,5 +193,22 @@ public class Product implements Comparable<Product>, Serializable, IProduct {
 
 
         return result;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(mId);
+        dest.writeString(mName);
+        dest.writeString(mDescription);
+        dest.writeString(mBrand);
+        dest.writeString(mDosage);
+        dest.writeDouble(mPrice);
+        dest.writeInt(mStock);
+        dest.writeInt(mImage);
     }
 }

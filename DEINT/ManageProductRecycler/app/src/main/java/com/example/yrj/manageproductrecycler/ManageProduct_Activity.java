@@ -20,7 +20,7 @@ public class ManageProduct_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_product);
-        product = (Product) getIntent().getExtras().getSerializable(IProduct.PRODUCT_KEY);
+        product = (Product) getIntent().getExtras().getParcelable(IProduct.PRODUCT_KEY);
         etName = (EditText) findViewById(R.id.etName);
         etDescription = (EditText) findViewById(R.id.etDescription);
         etBrand = (EditText) findViewById(R.id.etBrand);
@@ -54,7 +54,7 @@ public class ManageProduct_Activity extends AppCompatActivity {
 
         Intent intent = new Intent (ManageProduct_Activity.this, Product_Activity.class);
         Bundle bundle = new Bundle();
-        bundle.putSerializable(IProduct.PRODUCT_KEY, product);
+        bundle.putParcelable(IProduct.PRODUCT_KEY, product);
         intent.putExtras(bundle);
         setResult(Activity.RESULT_OK,intent);
         finish();

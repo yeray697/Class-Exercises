@@ -68,7 +68,7 @@ public class ProductPresenter implements IProductMvp.Presenter {
             Intent returnIntent = new Intent();
             Bundle bundle = new Bundle();
 
-            bundle.putSerializable(IProduct.PRODUCT_KEY,
+            bundle.putParcelable(IProduct.PRODUCT_KEY,
                     new Product(name, description, brand, String.valueOf(dosage),
                             Double.valueOf(price), Integer.valueOf(stock), R.mipmap.ic_launcher));
             returnIntent.putExtras(bundle);
