@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">StaticFragment</string>
+    <string name="tvfragment_2_text">Hola desde el fragment 2</string>
+    <string name="btset_text">Set</string>
+</resources>
