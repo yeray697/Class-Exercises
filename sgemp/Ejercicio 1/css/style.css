@@ -1,0 +1,77 @@
+body {
+	background: #e2e2e2 url(../img/bg-body2.jpg) 50% 0 repeat;
+	font: 12px/20px Arial, Helvetica, sans-serif;
+	color: #949494;
+	position: relative;
+	min-width: 980px;
+}
+.bg-main {
+	width: 100%;
+	text-align: center;
+	background: #fff url(../img/bg-body.jpg) 50% 0 repeat;
+}
+/*  Header styles */
+header {
+	position: relative;
+	z-index: 99;
+	padding: 20px 0 25px 0;
+	width: 100%;
+	text-align: left;
+	background: url(../img/header-line.jpg) 0 0 repeat-x;
+}
+header h1 {
+	padding-left: 90px;
+	font-size: 26px;
+	font-weight: 700;
+	letter-spacing: -1px;
+	padding-bottom: 17px;
+}
+header h1 a {
+	background: url(../img/logo.png) 0 0 no-repeat;
+	width: 175px;
+	height: 175px;
+	background-size: cover;
+	text-indent: -5000px;
+	float: left;
+}
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.3em;
+	color: #000;
+	font-family: 'Aro', sans-serif;
+	font-weight: 400;
+}
+/* contenido */
+#content {
+	margin: 0 auto;
+	padding: 50px 100px 10px 100px;
+	color: #000;
+}
+
+/* footer */
+footer {
+	padding: 10px 0 70px;
+	color: #adadad;
+	text-align: center;
+}
+/* Table */
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: center;
+
+}
+th {
+    background-color: #3E3C3C;
+    color: #fff;
+	border:  1px solid #000;
+}
+td {
+	border:  1px solid #000;
+    width: 150px;
+    color: #3E3C3C;
+}
+td.fixed {
+    background-color: #3E3C3C;
+    color: #fff;
+    text-align: center;
+}
