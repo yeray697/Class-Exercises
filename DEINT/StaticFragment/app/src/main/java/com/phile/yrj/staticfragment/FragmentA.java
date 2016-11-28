@@ -1,5 +1,6 @@
 package com.phile.yrj.staticfragment;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -21,13 +22,32 @@ public class FragmentA extends Fragment {
     public interface FragmentIterationListener{
         void onFragmentIterationListener(String text, int size);
     }
+
+    boolean higher23 = false;
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        if (!higher23) {
+            try {
+                mCallback = (FragmentIterationListener) context;
+            } catch (ClassCastException ex) {
+                throw new ClassCastException(context.toString() + " must implement FragmentIterationListener");
+            }
+        }
+    }
+
+    /**
+     *
+     * @param activity
+     */
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach((Activity)activity);
+        higher23 = true;
         try{
-            mCallback = (FragmentIterationListener)context;
+            mCallback = (FragmentIterationListener)activity;
         } catch (ClassCastException ex) {
-            throw new ClassCastException(context.toString()+ " must implement FragmentIterationListener");
+            throw new ClassCastException(activity.toString()+ " must implement FragmentIterationListener");
         }
     }
 
@@ -43,7 +63,7 @@ public class FragmentA extends Fragment {
             btSet.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    mCallback.onFragmentIterationListener(etText.getText().toString(),sbFragment.getScrollBarSize());
+                    mCallback.onFragmentIterationListener(etText.getText().toString(), (sbFragment.getProgress() + 15));
                 }
             });
         }

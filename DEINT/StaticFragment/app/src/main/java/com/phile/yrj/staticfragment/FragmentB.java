@@ -20,4 +20,25 @@ public class FragmentB extends Fragment {
         }
         return rootView;
     }
+
+    public void changeTextView(String text, int size) {
+        tvFragment2.setText(text);
+        tvFragment2.setTextSize(size);
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if (savedInstanceState != null) {
+            tvFragment2.setText(savedInstanceState.getString("textview_text"));
+            tvFragment2.setTextSize(savedInstanceState.getFloat("textview_textsize") / getResources().getDisplayMetrics().scaledDensity);
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("textview_text",tvFragment2.getText().toString());
+        outState.putFloat("textview_textsize",tvFragment2.getTextSize());
+    }
 }
