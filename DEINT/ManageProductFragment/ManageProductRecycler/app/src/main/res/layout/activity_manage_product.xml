@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_add_to_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.yrj.manageproductrecycler.ManageProduct_Activity">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/etName"
+        android:hint="@string/etNameHint"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="@dimen/add_product_margin_bottom"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_below="@id/etName"
+        android:id="@+id/etDescription"
+        android:hint="@string/etDescriptionHint"
+        android:layout_marginBottom="@dimen/add_product_margin_bottom"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_alignParentRight="true"
+        android:id="@+id/etBrand"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/etDescription"
+        android:hint="@string/etBrandHint"
+        android:layout_marginBottom="@dimen/add_product_margin_bottom"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:layout_below="@id/etBrand"
+        android:ems="10"
+        android:layout_alignParentRight="true"
+        android:id="@+id/etDosage"
+        android:layout_alignParentEnd="true"
+        android:hint="@string/etDosageHint"
+        android:layout_marginBottom="@dimen/add_product_margin_bottom"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etDosage"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:layout_alignParentRight="true"
+        android:id="@+id/etPrice"
+        android:layout_alignParentEnd="true"
+        android:hint="@string/etPriceHint"
+        android:layout_marginBottom="@dimen/add_product_margin_bottom"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etPrice"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_alignParentRight="true"
+        android:id="@+id/etStock"
+        android:layout_alignParentEnd="true"
+        android:hint="@string/etStockHint"
+        android:layout_marginBottom="@dimen/add_product_margin_bottom"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/llyPhoto"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/btSave"
+        android:text="@string/btSaveText"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>
