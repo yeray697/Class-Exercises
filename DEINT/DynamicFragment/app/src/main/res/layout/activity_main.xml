@@ -9,19 +9,4 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.phile.yrj.staticfragment.MainActivity">
-
-    <fragment
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:name="com.phile.yrj.staticfragment.FragmentA"
-        android:id="@+id/fragment"
-        tools:layout="@layout/fragment_fragment_a" />
-
-    <fragment
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:name="com.phile.yrj.staticfragment.FragmentB"
-        android:id="@+id/fragment2"
-        tools:layout="@layout/fragment_fragment_b"
-        android:layout_below="@id/fragment"/>
 </RelativeLayout>

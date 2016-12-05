@@ -18,6 +18,7 @@ public class FragmentA extends Fragment {
     SeekBar sbFragment;
     EditText etText;
     FragmentIterationListener mCallback;
+    public static final String TAG_FRAGMENTA = "fragmenta";
 
     public interface FragmentIterationListener{
         void onFragmentIterationListener(String text, int size);
@@ -36,10 +37,6 @@ public class FragmentA extends Fragment {
         }
     }
 
-    /**
-     *
-     * @param activity
-     */
     @Override
     public void onAttach(Activity activity) {
         super.onAttach((Activity)activity);
@@ -49,6 +46,12 @@ public class FragmentA extends Fragment {
         } catch (ClassCastException ex) {
             throw new ClassCastException(activity.toString()+ " must implement FragmentIterationListener");
         }
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
     }
 
     @Nullable
