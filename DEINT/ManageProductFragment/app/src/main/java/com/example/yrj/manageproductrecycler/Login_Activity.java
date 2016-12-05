@@ -2,7 +2,6 @@ package com.example.yrj.manageproductrecycler;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -63,7 +62,7 @@ public class Login_Activity extends AppCompatActivity implements IValidateAccoun
         btSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Login_Activity.this, SignUpActivity.class);
+                Intent intent = new Intent(Login_Activity.this, SignUp_Activity.class);
                 startActivity(intent);
             }
         });
@@ -100,7 +99,7 @@ public class Login_Activity extends AppCompatActivity implements IValidateAccoun
             }
         });
         //Checking Application Object
-        User user = ((LoginApplication)getApplicationContext()).getUser();
+        User user = ((Login_Application)getApplicationContext()).getUser();
         if (user != null){
             Log.d(TAG, "User: "+ user.getUser());
             Log.d(TAG, "Pass: "+ user.getPassword());
@@ -140,7 +139,7 @@ public class Login_Activity extends AppCompatActivity implements IValidateAccoun
         super.onStop();
         Log.d(TAG, "Activity finalizada");
         //Checking Application Object
-        User user = ((LoginApplication)getApplicationContext()).getUser();
+        User user = ((Login_Application)getApplicationContext()).getUser();
         if (user != null){
             Log.d(TAG, "User: "+ user.getUser());
             Log.d(TAG, "Pass: "+ user.getPassword());

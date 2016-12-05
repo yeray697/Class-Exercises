@@ -4,26 +4,21 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.ListViewCompat;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.yrj.manageproductrecycler.adapter.ProductAdapter;
-import com.example.yrj.manageproductrecycler.adapter.ProductAdapterRecylcer;
 import com.example.yrj.manageproductrecycler.interfaces.IProduct;
 import com.example.yrj.manageproductrecycler.model.Product;
 
-public class Product_Activity extends AppCompatActivity{
+public class ListProduct_Fragment extends Fragment {
 
     private boolean order = false;
     private static final int ADDPRODUCT_REQUESTCODE = 0;
@@ -45,7 +40,7 @@ public class Product_Activity extends AppCompatActivity{
         fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Product_Activity.this, AddToList_Activity.class);
+                Intent intent = new Intent(ListProduct_Fragment.this, AddToList_Activity.class);
                 startActivityForResult(intent,ADDPRODUCT_REQUESTCODE);
             }
         });
@@ -54,7 +49,7 @@ public class Product_Activity extends AppCompatActivity{
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Bundle bundle = new Bundle();
                 bundle.putParcelable(IProduct.PRODUCT_KEY, (Product)parent.getItemAtPosition(position));
-                Intent intent = new Intent(Product_Activity.this, ManageProduct_Activity.class);
+                Intent intent = new Intent(ListProduct_Fragment.this, ManageProduct_Fragment.class);
                 intent.putExtras(bundle);
                 startActivityForResult(intent,EDITPRODUCT_REQUESTCODE);
             }
@@ -69,11 +64,11 @@ public class Product_Activity extends AppCompatActivity{
                 sortAdapterAlphabetically();
                 break;
             case R.id.action_settings_general:
-                intent = new Intent(Product_Activity.this, GeneralSettingActivity.class);
+                intent = new Intent(ListProduct_Fragment.this, GeneralSetting_Activity.class);
                 startActivity(intent);
                 break;
             case R.id.action_settings_account:
-                intent = new Intent(Product_Activity.this, AccountSettingActivity.class);
+                intent = new Intent(ListProduct_Fragment.this, AccountSetting_Activity.class);
                 startActivity(intent);
                 break;
         }

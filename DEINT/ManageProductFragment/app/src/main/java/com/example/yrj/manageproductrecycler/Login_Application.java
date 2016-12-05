@@ -12,7 +12,7 @@ import java.util.List;
  * @author Yeray Ruiz
  */
 
-public class LoginApplication extends Application {
+public class Login_Application extends Application {
     private User user;
     ArrayList<Product> products = new ArrayList<Product>();
 

@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.yrj.manageproductrecycler.LoginApplication;
+import com.example.yrj.manageproductrecycler.Login_Application;
 import com.example.yrj.manageproductrecycler.R;
 import com.example.yrj.manageproductrecycler.model.Product;
 
@@ -30,7 +30,7 @@ public class ProductAdapterRecylcer extends RecyclerView.Adapter<ProductAdapterR
     public ProductAdapterRecylcer (Context context){
         this.context = context;
         this.products = new ArrayList<Product>();
-        this.products = ((LoginApplication)context.getApplicationContext()).getProducts();
+        this.products = ((Login_Application)context.getApplicationContext()).getProducts();
         sortProducts();
     }
     @Override

@@ -11,7 +11,7 @@ import android.widget.EditText;
 import com.example.yrj.manageproductrecycler.interfaces.IProduct;
 import com.example.yrj.manageproductrecycler.model.Product;
 
-public class ManageProduct_Activity extends AppCompatActivity {
+public class ManageProduct_Fragment extends AppCompatActivity {
     Product product;
     EditText etName, etDescription, etBrand, etDosage, etPrice, etStock;
     Button btSave;
@@ -52,7 +52,7 @@ public class ManageProduct_Activity extends AppCompatActivity {
         product.setPrice(Double.parseDouble(etPrice.getText().toString()));
         product.setStock(Integer.parseInt(etStock.getText().toString()));
 
-        Intent intent = new Intent (ManageProduct_Activity.this, Product_Activity.class);
+        Intent intent = new Intent (ManageProduct_Fragment.this, ListProduct_Fragment.class);
         Bundle bundle = new Bundle();
         bundle.putParcelable(IProduct.PRODUCT_KEY, product);
         intent.putExtras(bundle);

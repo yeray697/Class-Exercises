@@ -3,25 +3,26 @@
     package="com.example.yrj.manageproductrecycler">
 
     <application
-        android:name=".LoginApplication"
+        android:name=".Login_Application"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Product_Activity">
+        <activity android:name=".ListProduct_Fragment">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter></activity>
-        <activity android:name=".Login_Activity">
+            </intent-filter>
         </activity>
+        <activity android:name=".Login_Activity"></activity>
         <activity android:name=".AddToList_Activity" />
-        <activity android:name=".GeneralSettingActivity" />
-        <activity android:name=".AccountSettingActivity" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".ManageProduct_Activity"/>
+        <activity android:name=".GeneralSetting_Activity" />
+        <activity android:name=".AccountSetting_Activity" />
+        <activity android:name=".SignUp_Activity" />
+        <activity android:name=".ManageProduct_Fragment" />
+        <activity android:name=".Home_Activity"></activity>
     </application>
 
 </manifest>

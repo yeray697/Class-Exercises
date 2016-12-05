@@ -6,18 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.yrj.manageproductrecycler.LoginApplication;
-import com.example.yrj.manageproductrecycler.Product_Activity;
+import com.example.yrj.manageproductrecycler.Login_Application;
 import com.example.yrj.manageproductrecycler.R;
 import com.example.yrj.manageproductrecycler.model.Product;
 
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -37,7 +33,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
     public ProductAdapter(Context context) {
         super(context,
                 R.layout.listrow,
-                ((LoginApplication)context.getApplicationContext()).getProducts());
+                ((Login_Application)context.getApplicationContext()).getProducts());
         asc = true;
     }
 

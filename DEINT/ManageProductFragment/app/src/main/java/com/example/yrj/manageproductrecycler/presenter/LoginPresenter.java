@@ -4,10 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 
-import com.example.yrj.manageproductrecycler.Product_Activity;
+import com.example.yrj.manageproductrecycler.ListProduct_Fragment;
 import com.example.yrj.manageproductrecycler.R;
 import com.example.yrj.manageproductrecycler.interfaces.IValidateAccount;
-import com.example.yrj.manageproductrecycler.utils.ErrorMapUtils;
 import com.example.yrj.manageproductrecycler.model.Error;
 
 import java.util.regex.Pattern;
@@ -40,7 +39,7 @@ public class LoginPresenter implements IValidateAccount.Presenter {
         if (validateUser == Error.OK) {
             validatePass = validatePass(password);
             if(validatePass == Error.OK) {
-                Intent intent = new Intent(context, Product_Activity.class);
+                Intent intent = new Intent(context, ListProduct_Fragment.class);
                 view.startActivity(intent);
             } else {
                 view.setMessageError(Error.getMessageError(context, validatePass), R.id.tilPass);

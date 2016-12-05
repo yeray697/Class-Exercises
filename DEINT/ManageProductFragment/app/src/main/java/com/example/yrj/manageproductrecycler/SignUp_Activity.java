@@ -22,7 +22,7 @@ import android.widget.Toast;
 import com.example.yrj.manageproductrecycler.interfaces.IValidateUser;
 import com.example.yrj.manageproductrecycler.presenter.SignUpPresenter;
 
-public class SignUpActivity extends AppCompatActivity implements IValidateUser.View{
+public class SignUp_Activity extends AppCompatActivity implements IValidateUser.View{
 
     SignUpPresenter presenter;
     Spinner spCounty;
@@ -91,7 +91,7 @@ public class SignUpActivity extends AppCompatActivity implements IValidateUser.V
         boolean privacyAccepted = cbPrivacy.isChecked();
         if (presenter.validateCredentials(user,pass,email,county, city, isBusinessType, businessName, privacyAccepted)) {
             presenter.savePreferences(user,email,pass);
-            Intent intent = new Intent(SignUpActivity.this, Product_Activity.class);
+            Intent intent = new Intent(SignUp_Activity.this, ListProduct_Fragment.class);
             startActivity(intent);
             finish();
         }
@@ -108,7 +108,7 @@ public class SignUpActivity extends AppCompatActivity implements IValidateUser.V
                         CharSequence[] data = getResources().getStringArray(ids.getResourceId(position, -1));
 
                         ids.recycle();
-                        adapterCity = new ArrayAdapter<CharSequence>(SignUpActivity.this,
+                        adapterCity = new ArrayAdapter<CharSequence>(SignUp_Activity.this,
                                 android.R.layout.simple_spinner_dropdown_item, data);
                         spCity.setAdapter(adapterCity);
                         break;
