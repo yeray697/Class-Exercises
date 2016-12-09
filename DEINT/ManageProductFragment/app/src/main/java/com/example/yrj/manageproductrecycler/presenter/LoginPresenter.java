@@ -6,7 +6,6 @@ import android.text.TextUtils;
 
 import com.example.yrj.manageproductrecycler.ListProduct_Fragment;
 import com.example.yrj.manageproductrecycler.R;
-import com.example.yrj.manageproductrecycler.interfaces.IValidateAccount;
 import com.example.yrj.manageproductrecycler.model.Error;
 
 import java.util.regex.Pattern;
@@ -19,8 +18,8 @@ import java.util.regex.Pattern;
  *  @author Yeray Ruiz
  *  @version 1.0
  */
-public class LoginPresenter implements IValidateAccount.Presenter {
-    private IValidateAccount.View view;
+public class LoginPresenter implements com.example.yrj.manageproductrecycler.interfaces.LoginPresenter.Presenter {
+    private com.example.yrj.manageproductrecycler.interfaces.LoginPresenter.View view;
     private int validateUser;
     private int validatePass;
     private Context context;
@@ -29,7 +28,7 @@ public class LoginPresenter implements IValidateAccount.Presenter {
      * Constructor
      * @param view View implemented from ILoginMvp.View
      */
-    public LoginPresenter(IValidateAccount.View view) {
+    public LoginPresenter(com.example.yrj.manageproductrecycler.interfaces.LoginPresenter.View view) {
         this.view = view;
         this.context = (Context)view;
     }
@@ -68,7 +67,7 @@ public class LoginPresenter implements IValidateAccount.Presenter {
         int result = Error.OK;
         Boolean numericMatch, uppercaseMatch, lowercaseMatch, minLength;
         //Boolean conditions
-        minLength = pass.length() < IValidateAccount.MINLENGTH;
+        minLength = pass.length() < com.example.yrj.manageproductrecycler.interfaces.LoginPresenter.MINLENGTH;
         numericMatch = Pattern.matches(".*[0-9]+.*", pass);
         uppercaseMatch = Pattern.matches(".*[a-z]+.*", pass);
         lowercaseMatch = Pattern.matches(".*[A-Z]+.*", pass);

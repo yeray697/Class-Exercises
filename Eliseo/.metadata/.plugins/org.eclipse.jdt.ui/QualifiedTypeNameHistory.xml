@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="yrj.dam.psp.DosMutex"/>
-<fullyQualifiedTypeName name="yrj.dam.psp.GlobalVar"/>
-<fullyQualifiedTypeName name="dam.psp.HilosExclusionMutua"/>
-<fullyQualifiedTypeName name="dam.psp.DosMutex"/>
-<fullyQualifiedTypeName name="dam.psp.GlobalVar"/>
-<fullyQualifiedTypeName name="yrj.dam.HiloB"/>
-<fullyQualifiedTypeName name="yrj.dam.HiloA"/>
-<fullyQualifiedTypeName name="yrj.dam.Inutil"/>
 <fullyQualifiedTypeName name="org.omg.PortableServer.ServantActivator"/>
 <fullyQualifiedTypeName name="yrj.dam.Saludo"/>
 <fullyQualifiedTypeName name="yrj.dam.Profesor"/>
@@ -31,7 +23,6 @@
 <fullyQualifiedTypeName name="yrj.psp.Hilo"/>
 <fullyQualifiedTypeName name="yrj.psp.Orden"/>
 <fullyQualifiedTypeName name="javax.xml.stream.events.StartDocument"/>
-<fullyQualifiedTypeName name="java.lang.InstantiationError"/>
 <fullyQualifiedTypeName name="yrj.psp.Buffers"/>
 <fullyQualifiedTypeName name="yrj.psp.Escritor"/>
 <fullyQualifiedTypeName name="yrj.psp.Lector"/>
@@ -49,15 +40,24 @@
 <fullyQualifiedTypeName name="yrj.psp.Caja"/>
 <fullyQualifiedTypeName name="yrj.psp.Supermercado"/>
 <fullyQualifiedTypeName name="yrj.psp.Supermercado1_4"/>
-<fullyQualifiedTypeName name="java.net.Socket"/>
 <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="Cliente"/>
 <fullyQualifiedTypeName name="yrj.dam.ServidorUDP"/>
 <fullyQualifiedTypeName name="yrj.dam.ClienteUDP"/>
+<fullyQualifiedTypeName name="java.net.Socket"/>
+<fullyQualifiedTypeName name="java.lang.InstantiationError"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.lang.UnknownError"/>
+<fullyQualifiedTypeName name="java.io.ByteArrayOutputStream"/>
+<fullyQualifiedTypeName name="java.io.ObjectOutputStream"/>
+<fullyQualifiedTypeName name="java.io.ByteArrayInputStream"/>
+<fullyQualifiedTypeName name="java.io.ObjectInputStream"/>
 <fullyQualifiedTypeName name="java.net.DatagramSocket"/>
+<fullyQualifiedTypeName name="dam.yrj.Constantes"/>
 <fullyQualifiedTypeName name="java.net.InetAddress"/>
 <fullyQualifiedTypeName name="java.net.DatagramPacket"/>
+<fullyQualifiedTypeName name="dam.yrj.DatoUDP"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="dam.yrj.ServidorUDP"/>
 </qualifiedTypeNameHistroy>

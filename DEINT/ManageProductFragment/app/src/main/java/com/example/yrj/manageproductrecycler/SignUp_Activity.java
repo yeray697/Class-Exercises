@@ -19,12 +19,11 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.yrj.manageproductrecycler.interfaces.IValidateUser;
-import com.example.yrj.manageproductrecycler.presenter.SignUpPresenter;
+import com.example.yrj.manageproductrecycler.interfaces.SignUpPresenter;
 
-public class SignUp_Activity extends AppCompatActivity implements IValidateUser.View{
+public class SignUp_Activity extends AppCompatActivity implements SignUpPresenter.View{
 
-    SignUpPresenter presenter;
+    com.example.yrj.manageproductrecycler.presenter.SignUpPresenter presenter;
     Spinner spCounty;
     Spinner spCity;
     RadioGroup rgType;
@@ -40,7 +39,7 @@ public class SignUp_Activity extends AppCompatActivity implements IValidateUser.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        presenter = new SignUpPresenter(this);
+        presenter = new com.example.yrj.manageproductrecycler.presenter.SignUpPresenter(this);
         spCity = (Spinner) findViewById(R.id.spCity);
         spCounty = (Spinner) findViewById(R.id.spCounty);
         btSubmit = (Button) findViewById(R.id.btSubmit);
@@ -147,7 +146,7 @@ public class SignUp_Activity extends AppCompatActivity implements IValidateUser.
     @Override
     public void setMessageError(String messageError, int idView) {
         switch (idView){
-            case SignUpPresenter.SNACKBAR:
+            case com.example.yrj.manageproductrecycler.presenter.SignUpPresenter.SNACKBAR:
                 Snackbar.make(lySignUp,messageError,Snackbar.LENGTH_SHORT).show();
                 //Toast.makeText(this, messageError, Toast.LENGTH_SHORT).show();
                 break;

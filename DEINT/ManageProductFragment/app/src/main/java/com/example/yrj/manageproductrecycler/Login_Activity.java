@@ -14,19 +14,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
-import com.example.yrj.manageproductrecycler.interfaces.IValidateAccount;
+import com.example.yrj.manageproductrecycler.interfaces.LoginPresenter;
 import com.example.yrj.manageproductrecycler.model.User;
-import com.example.yrj.manageproductrecycler.presenter.LoginPresenter;
 
 /**
  * Class that implements a login
  * @author Yeray Ruiz
  * @version 1.0
  */
-public class Login_Activity extends AppCompatActivity implements IValidateAccount.View {
+public class Login_Activity extends AppCompatActivity implements LoginPresenter.View {
 
     private static final String TAG = "loginrelative";
-    private LoginPresenter presenter;
+    private com.example.yrj.manageproductrecycler.presenter.LoginPresenter presenter;
     private EditText etUser, etPass;
     private TextInputLayout tilUser, tilPass;
     private Button btSubmit;
@@ -38,7 +37,7 @@ public class Login_Activity extends AppCompatActivity implements IValidateAccoun
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Typeface font = Typeface.createFromAsset(getAssets(),"hipsterfont.otf");
-        presenter = new LoginPresenter(this); //Presenter has a reference to the view
+        presenter = new com.example.yrj.manageproductrecycler.presenter.LoginPresenter(this); //Presenter has a reference to the view
         //Setting controls
         parent = (RelativeLayout) findViewById(R.id.activity_login);
         etUser = (EditText) findViewById(R.id.etUser);
