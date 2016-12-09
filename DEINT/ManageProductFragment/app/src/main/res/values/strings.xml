@@ -31,4 +31,5 @@
     <string name="etUserSignUp_text">Nombre de usuario</string>
     <string name="btSignUp">Registrarse</string>
     <string name="message">%1$s (%2$s)</string>
+    <string name="nodata">No hay datos</string>
 </resources>

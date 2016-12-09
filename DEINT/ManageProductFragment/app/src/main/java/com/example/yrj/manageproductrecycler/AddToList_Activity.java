@@ -12,10 +12,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.yrj.manageproductrecycler.interfaces.IProductMvp;
+import com.example.yrj.manageproductrecycler.interfaces.ListProductPresenter;
 import com.example.yrj.manageproductrecycler.presenter.ProductPresenter;
 
-public class AddToList_Activity extends AppCompatActivity implements IProductMvp.View{
+public class AddToList_Activity extends AppCompatActivity implements ListProductPresenter.View{
 
     private final int SELECT_IMAGE = 2;
     private final int TAKE_PICTURE = 3;
@@ -24,7 +24,7 @@ public class AddToList_Activity extends AppCompatActivity implements IProductMvp
     EditText etName, etDescription, etBrand, etDosage, etPrice, etStock;
     TextView tvPhoto;
     Uri photo;
-    IProductMvp.Presenter listPresenter;
+    ListProductPresenter.Presenter listPresenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

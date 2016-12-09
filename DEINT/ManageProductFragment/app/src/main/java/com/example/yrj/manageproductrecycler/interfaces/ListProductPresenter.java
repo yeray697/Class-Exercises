@@ -7,7 +7,7 @@ import android.net.Uri;
  * @author Yeray Ruiz
  */
 
-public interface IProductMvp {
+public interface ListProductPresenter {
     int CORRECT = 0;
     int NAME_EMPTY = 1;
     int DESCRIPTION_EMPTY = 2;
@@ -17,10 +17,5 @@ public interface IProductMvp {
     int STOCK_EMPTY = 6;
     int PHOTO_EMPTY = 7;
 
-    interface View{
-        void setMessageError(String messageError, int idView);
-    }
-    interface Presenter{
         boolean validateCredentials(String name, String description, String brand, String dosage, String price, String stock, Uri image);
-    }
 }

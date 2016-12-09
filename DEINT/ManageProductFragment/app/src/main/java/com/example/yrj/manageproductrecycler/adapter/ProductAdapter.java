@@ -117,4 +117,10 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         notifyDataSetChanged();
         asc = !asc;
     }
+
+    public void updateProducts(List<Product> products){
+        clear();
+        addAll(products);
+        notifyDataSetChanged();
+    }
 }
