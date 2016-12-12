@@ -1,4 +1,4 @@
-package dam.yrj;
+package dam.psp;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -14,11 +14,12 @@ public class DatoUDP implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	public String cadenaTexto;
-	public int cadenaNumero;
+	public Integer cadenaNumero;
 	
-	public DatoUDP(String texto, int numero) {
-		this.cadenaNumero = numero;
+	public DatoUDP(String texto, Integer numero) {
 		this.cadenaTexto = texto;
+		this.cadenaNumero = numero;
+		System.out.println(cadenaTexto + ", " + cadenaNumero);
 	}
 	
 	//Serializador

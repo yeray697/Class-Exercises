@@ -1,4 +1,4 @@
-package dam.yrj;
+package dam.psp;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
