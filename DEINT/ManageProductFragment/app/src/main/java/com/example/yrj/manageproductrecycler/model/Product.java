@@ -5,7 +5,6 @@ import android.os.Parcelable;
 
 import com.example.yrj.manageproductrecycler.interfaces.IProduct;
 
-import java.io.Serializable;
 import java.util.Comparator;
 import java.util.Locale;
 import java.util.UUID;
@@ -59,6 +58,9 @@ public class Product implements Comparable<Product>, IProduct, Parcelable{
         this.mPrice = mPrice;
         this.mStock = mStock;
         this.mImage = mImage;
+    }
+    public Product(){
+
     }
 
     protected Product(Parcel in) {
@@ -164,9 +166,9 @@ public class Product implements Comparable<Product>, IProduct, Parcelable{
         else {
             if (o != null && getClass() == o.getClass()) {
                 Product product = (Product) o;
-                if (mName.equals(product.mName))
-                    if (mBrand.equals(product.mBrand))
-                        result = mDosage.equals(product.mDosage);
+                if (mName.equalsIgnoreCase(product.mName))
+                    if (mBrand.equalsIgnoreCase(product.mBrand))
+                        result = mDosage.equalsIgnoreCase(product.mDosage);
             }
         }
         return result;

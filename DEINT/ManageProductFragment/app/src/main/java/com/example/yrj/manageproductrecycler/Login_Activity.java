@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
-import com.example.yrj.manageproductrecycler.interfaces.LoginPresenter;
+import com.example.yrj.manageproductrecycler.interfaces.ILoginView;
 import com.example.yrj.manageproductrecycler.model.User;
 
 /**
@@ -22,7 +22,7 @@ import com.example.yrj.manageproductrecycler.model.User;
  * @author Yeray Ruiz
  * @version 1.0
  */
-public class Login_Activity extends AppCompatActivity implements LoginPresenter.View {
+public class Login_Activity extends AppCompatActivity implements ILoginView {
 
     private static final String TAG = "loginrelative";
     private com.example.yrj.manageproductrecycler.presenter.LoginPresenter presenter;

@@ -1,16 +1,7 @@
 package com.example.yrj.manageproductrecycler.presenter;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
-
-import com.example.yrj.manageproductrecycler.interfaces.IProduct;
 import com.example.yrj.manageproductrecycler.interfaces.IProductPresenter;
-import com.example.yrj.manageproductrecycler.interfaces.ListProductPresenter;
-import com.example.yrj.manageproductrecycler.R;
+import com.example.yrj.manageproductrecycler.interfaces.IProductView;
 import com.example.yrj.manageproductrecycler.model.Product;
 import com.example.yrj.manageproductrecycler.model.ProductRepository;
 
@@ -19,10 +10,10 @@ import com.example.yrj.manageproductrecycler.model.ProductRepository;
  */
 
 public class ProductPresenter implements IProductPresenter {
-    IProductPresenter.View view;
+    IProductView view;
     private ProductRepository repository;
 
-    public ProductPresenter(IProductPresenter.View view){
+    public ProductPresenter(IProductView view){
         this.view = view;
         this.repository = ProductRepository.getInstance();
     }
@@ -42,9 +33,14 @@ public class ProductPresenter implements IProductPresenter {
     }
 
     @Override
-    public void deleteProdduct(Product product) {
-        repository.deleteProduct(product);
+    public void addProduct(Product product) {
+        repository.addProduct(product);
+    }
 
+    @Override
+    public void deleteProduct(Product product) {
+        repository.deleteProduct(product);
+        view.showMessageDelete(product);
         //DEPENDE DE LA IMPLEMENTACIÓN
         loadProducts();
     }

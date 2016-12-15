@@ -9,5 +9,6 @@ import com.example.yrj.manageproductrecycler.model.Product;
 public interface IRepository {
     public Product getProductBy(int id);
     public void deleteProduct(Product product);
+    public void addProduct(Product product);
     public void updateProduct(Product product);
 }

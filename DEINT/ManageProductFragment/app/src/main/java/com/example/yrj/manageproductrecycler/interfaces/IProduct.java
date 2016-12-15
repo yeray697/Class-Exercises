@@ -1,7 +1,7 @@
 package com.example.yrj.manageproductrecycler.interfaces;
 
 /**
- * Created by usuario on 18/11/16.
+ * Created by usuario on 15/12/16.
  */
 
 public interface IProduct {

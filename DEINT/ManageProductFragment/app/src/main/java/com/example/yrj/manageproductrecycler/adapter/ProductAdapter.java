@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.yrj.manageproductrecycler.Login_Application;
 import com.example.yrj.manageproductrecycler.R;
 import com.example.yrj.manageproductrecycler.model.Product;
+import com.example.yrj.manageproductrecycler.model.ProductRepository;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,7 +34,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
     public ProductAdapter(Context context) {
         super(context,
                 R.layout.listrow,
-                ((Login_Application)context.getApplicationContext()).getProducts());
+                new ArrayList<Product>(ProductRepository.getInstance().getAllProducts()));
         asc = true;
     }
 

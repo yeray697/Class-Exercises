@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Login_Application extends Application {
     private User user;
-    ArrayList<Product> products = new ArrayList<Product>();
+    //ArrayList<Product> products = new ArrayList<Product>();
 
     @Override
     public void onCreate(){
@@ -32,7 +32,7 @@ public class Login_Application extends Application {
         products.add(new Product("Valium","Es una droga que se receta ampliamente contra la ansiedad, y de la que también se abusa mucho","ROCHE FARMA","10 MG 6 AMPOLLAS 2 ML",2.61,65,R.raw.valium));
         */
 
-        products.add(new Product("Ibuprofeno","Es un fármaco con propiedades antiinflamatorias, antipiréticas y analgésicas","CINFA","400 MG 30 SOBRES GRANULADO ",3.23,26,R.mipmap.ic_launcher));
+        /*products.add(new Product("Ibuprofeno","Es un fármaco con propiedades antiinflamatorias, antipiréticas y analgésicas","CINFA","400 MG 30 SOBRES GRANULADO ",3.23,26,R.mipmap.ic_launcher));
         products.add(new Product("Ibuprofeno","Es un fármaco con propiedades antiinflamatorias, antipiréticas y analgésicas","CINFA","600 MG 20 SOBRES GRANULADO",3.73,15,R.mipmap.ic_launcher));
         products.add(new Product("Ibuprofeno","Es un fármaco con propiedades antiinflamatorias, antipiréticas y analgésicas\"","CINFA","600 MG 40 SOBRES GRANULADO ",5.92,50,R.mipmap.ic_launcher));
         products.add(new Product("Dalsy","Dalsy contiene ibuprofeno como principio activo y pertenece a un grupo de medicamentos llamados antiinflamatorios no esteroideos","ABBOTT LABORATORIES","100mg/5ml susp 200ml",3.48,19,R.mipmap.ic_launcher));
@@ -42,7 +42,7 @@ public class Login_Application extends Application {
         products.add(new Product("Frenadol","Te ayudan a frenar los síntomas de la gripe y el resfriado","MCNEIL IBERIC","10 COMPRIMIDOS EFERVESCENTES",4.95,26, R.mipmap.ic_launcher));
         products.add(new Product("Frenadol Complex","Es un medicamento indicado para el alivio sintomático de gripes y catarros","MCNEIL IBERIC","10 SOBRES",4.95,64,R.mipmap.ic_launcher));
         products.add(new Product("Valium","Es una droga que se receta ampliamente contra la ansiedad, y de la que también se abusa mucho","ROCHE FARMA","10 MG 6 AMPOLLAS 2 ML",2.61,65,R.mipmap.ic_launcher));
-
+        */
     }
 
     public User getUser() {
@@ -53,7 +53,7 @@ public class Login_Application extends Application {
             this.user = user;
     }
 
-    public List<Product> getProducts(){
+    /*public List<Product> getProducts(){
         return products;
     }
 
@@ -64,5 +64,5 @@ public class Login_Application extends Application {
             result = true;
         }
         return result;
-    }
+    }*/
 }

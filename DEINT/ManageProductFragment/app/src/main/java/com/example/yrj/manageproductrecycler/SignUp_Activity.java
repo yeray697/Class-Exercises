@@ -19,9 +19,10 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.yrj.manageproductrecycler.interfaces.SignUpPresenter;
+import com.example.yrj.manageproductrecycler.interfaces.ISignUpView;
+import com.example.yrj.manageproductrecycler.presenter.SignUpPresenter;
 
-public class SignUp_Activity extends AppCompatActivity implements SignUpPresenter.View{
+public class SignUp_Activity extends AppCompatActivity implements ISignUpView{
 
     com.example.yrj.manageproductrecycler.presenter.SignUpPresenter presenter;
     Spinner spCounty;
@@ -39,7 +40,7 @@ public class SignUp_Activity extends AppCompatActivity implements SignUpPresente
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        presenter = new com.example.yrj.manageproductrecycler.presenter.SignUpPresenter(this);
+        presenter = new SignUpPresenter(this);
         spCity = (Spinner) findViewById(R.id.spCity);
         spCounty = (Spinner) findViewById(R.id.spCounty);
         btSubmit = (Button) findViewById(R.id.btSubmit);

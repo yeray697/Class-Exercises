@@ -7,7 +7,9 @@ import android.util.Patterns;
 
 import com.example.yrj.manageproductrecycler.Login_Activity;
 import com.example.yrj.manageproductrecycler.R;
-import com.example.yrj.manageproductrecycler.interfaces.LoginPresenter;
+import com.example.yrj.manageproductrecycler.interfaces.ILoginPresenter;
+import com.example.yrj.manageproductrecycler.interfaces.ISignUpPresenter;
+import com.example.yrj.manageproductrecycler.interfaces.ISignUpView;
 import com.example.yrj.manageproductrecycler.model.Error;
 import com.example.yrj.manageproductrecycler.preferences.AccountPreferences;
 
@@ -17,12 +19,12 @@ import java.util.regex.Pattern;
  * Created by usuario on 10/11/16.
  */
 
-public class SignUpPresenter implements com.example.yrj.manageproductrecycler.interfaces.SignUpPresenter.Presenter, com.example.yrj.manageproductrecycler.interfaces.SignUpPresenter.PresenterUser{
+public class SignUpPresenter implements ISignUpPresenter {
     public static final int SNACKBAR = -1;
-    com.example.yrj.manageproductrecycler.interfaces.SignUpPresenter.View view;
+    ISignUpView view;
     Context context;
 
-    public SignUpPresenter(com.example.yrj.manageproductrecycler.interfaces.SignUpPresenter.View view){
+    public SignUpPresenter(ISignUpView view){
         this.view = view;
         this.context = (Context)view;
     }
@@ -34,7 +36,7 @@ public class SignUpPresenter implements com.example.yrj.manageproductrecycler.in
             result = false;
         } else {
             result = true;
-            view.startActivity(new Intent(context, Login_Activity.class));
+            ((Context)view).startActivity(new Intent(context, Login_Activity.class));
         }
         return result;
     }
@@ -107,7 +109,7 @@ public class SignUpPresenter implements com.example.yrj.manageproductrecycler.in
         int result = Error.OK;
         Boolean numericMatch, uppercaseMatch, lowercaseMatch, minLength;
         //Boolean conditions
-        minLength = pass.length() < LoginPresenter.MINLENGTH;
+        minLength = pass.length() < ISignUpPresenter.MINLENGTH;
         numericMatch = Pattern.matches(".*[0-9]+.*", pass);
         uppercaseMatch = Pattern.matches(".*[a-z]+.*", pass);
         lowercaseMatch = Pattern.matches(".*[A-Z]+.*", pass);

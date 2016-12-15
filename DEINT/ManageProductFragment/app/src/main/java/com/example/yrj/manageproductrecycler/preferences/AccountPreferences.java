@@ -10,7 +10,7 @@ import com.example.yrj.manageproductrecycler.interfaces.IPreferences;
  * Created by usuario on 10/11/16.
  */
 
-public class AccountPreferences implements IPreferences{
+public class AccountPreferences implements IPreferences {
     private static AccountPreferences accountPreferences;
     private static final String USER = "user";
     private static final String PASSWORD = "password";

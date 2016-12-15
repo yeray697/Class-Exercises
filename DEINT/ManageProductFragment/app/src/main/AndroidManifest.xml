@@ -9,20 +9,17 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ListProduct_Fragment">
+        <activity android:name=".Home_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login_Activity"></activity>
-        <activity android:name=".AddToList_Activity" />
+        <activity android:name=".Login_Activity"/>
         <activity android:name=".GeneralSetting_Activity" />
         <activity android:name=".AccountSetting_Activity" />
         <activity android:name=".SignUp_Activity" />
-        <activity android:name=".ManageProduct_Fragment" />
-        <activity android:name=".Home_Activity"></activity>
     </application>
 
 </manifest>

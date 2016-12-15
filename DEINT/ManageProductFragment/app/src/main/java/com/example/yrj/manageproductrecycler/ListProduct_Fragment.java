@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -16,25 +18,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.yrj.manageproductrecycler.adapter.ProductAdapter;
 import com.example.yrj.manageproductrecycler.interfaces.IProduct;
-import com.example.yrj.manageproductrecycler.interfaces.IProductPresenter;
+import com.example.yrj.manageproductrecycler.interfaces.IProductView;
 import com.example.yrj.manageproductrecycler.model.Product;
 import com.example.yrj.manageproductrecycler.presenter.ProductPresenter;
 
 import java.util.List;
 
-public class ListProduct_Fragment extends ListFragment implements IProductPresenter.View {
+public class ListProduct_Fragment extends Fragment implements IProductView {
 
     private ProductAdapter adapter;
     private FloatingActionButton fabAdd;
     private ListProductListener mCallback;
     private ProductPresenter presenter;
     private ListView listProduct;
-    private EditText etEmpty;
+    private TextView tvEmpty;
     private boolean click = false;
 
     interface ListProductListener {
@@ -74,9 +76,9 @@ public class ListProduct_Fragment extends ListFragment implements IProductPresen
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View rootView = inflater.inflate(R.layout.activity_product,container, false);
-        etEmpty = (EditText)rootView.findViewById(android.R.id.empty);
-        listProduct = this.getListView();
+        View rootView = inflater.inflate(R.layout.fragment_product,container, false);
+        tvEmpty = (TextView)rootView.findViewById(android.R.id.empty);
+        listProduct = (ListView) rootView.findViewById(android.R.id.list);
         listProduct.setAdapter(adapter);
         listProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -108,7 +110,7 @@ public class ListProduct_Fragment extends ListFragment implements IProductPresen
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case 1:
+            case R.id.action_delete:
                 AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
                 final int position = info.position;
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -118,7 +120,7 @@ public class ListProduct_Fragment extends ListFragment implements IProductPresen
                         .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                presenter.deleteProdduct((Product) listProduct.getItemAtPosition(position));
+                                presenter.deleteProduct((Product) listProduct.getItemAtPosition(position));
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -138,6 +140,7 @@ public class ListProduct_Fragment extends ListFragment implements IProductPresen
         inflater.inflate(R.menu.menu_listproduct, menu);
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent;
@@ -154,12 +157,13 @@ public class ListProduct_Fragment extends ListFragment implements IProductPresen
         adapter.updateProducts(products);
     }
 
+
     private void hideList(boolean hide){
         if (hide) {
-            etEmpty.setVisibility(View.VISIBLE);
+            tvEmpty.setVisibility(View.VISIBLE);
             listProduct.setVisibility(View.GONE);
         } else {
-            etEmpty.setVisibility(View.GONE);
+            tvEmpty.setVisibility(View.GONE);
             listProduct.setVisibility(View.VISIBLE);
         }
     }
@@ -169,9 +173,32 @@ public class ListProduct_Fragment extends ListFragment implements IProductPresen
         hideList(show);
     }
 
-    @Override
     public void showMessage(String message){
+    }
 
+    @Override
+    public void showMessageDelete(final Product product){
+        Snackbar.make(getView(),"Producto eliminado", Snackbar.LENGTH_LONG)
+                .setAction("UNDO", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        presenter.addProduct(product);
+                        presenter.loadProducts();
+                    }
+                }).show();
+
+        /*
+        //SETCALLBACK (Hacer una llamada a un método callback de un snackbar
+        // incluso si el SnackBar se ha eliminado mediante Swipe
+        .setCallback(new Snackbar.Callback() {
+            @Override
+            public void onDismissed(Snackbar snackbar, int event) {
+                super.onDismissed(snackbar, event);
+                if (event == DISMISS_EVENT_TIMEOUT || event == DISMISS_EVENT_SWIPE) {
+                    presenter.deleteProduct(product);
+                }
+            }
+        }).show();*/
     }
 
     @Override

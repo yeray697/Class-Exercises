@@ -6,6 +6,8 @@ import android.text.TextUtils;
 
 import com.example.yrj.manageproductrecycler.ListProduct_Fragment;
 import com.example.yrj.manageproductrecycler.R;
+import com.example.yrj.manageproductrecycler.interfaces.ILoginPresenter;
+import com.example.yrj.manageproductrecycler.interfaces.ILoginView;
 import com.example.yrj.manageproductrecycler.model.Error;
 
 import java.util.regex.Pattern;
@@ -18,8 +20,8 @@ import java.util.regex.Pattern;
  *  @author Yeray Ruiz
  *  @version 1.0
  */
-public class LoginPresenter implements com.example.yrj.manageproductrecycler.interfaces.LoginPresenter.Presenter {
-    private com.example.yrj.manageproductrecycler.interfaces.LoginPresenter.View view;
+public class LoginPresenter implements ILoginPresenter {
+    private ILoginView view;
     private int validateUser;
     private int validatePass;
     private Context context;
@@ -28,7 +30,7 @@ public class LoginPresenter implements com.example.yrj.manageproductrecycler.int
      * Constructor
      * @param view View implemented from ILoginMvp.View
      */
-    public LoginPresenter(com.example.yrj.manageproductrecycler.interfaces.LoginPresenter.View view) {
+    public LoginPresenter(ILoginView view) {
         this.view = view;
         this.context = (Context)view;
     }
@@ -39,7 +41,7 @@ public class LoginPresenter implements com.example.yrj.manageproductrecycler.int
             validatePass = validatePass(password);
             if(validatePass == Error.OK) {
                 Intent intent = new Intent(context, ListProduct_Fragment.class);
-                view.startActivity(intent);
+                ((Context)view).startActivity(intent);
             } else {
                 view.setMessageError(Error.getMessageError(context, validatePass), R.id.tilPass);
             }
@@ -67,7 +69,7 @@ public class LoginPresenter implements com.example.yrj.manageproductrecycler.int
         int result = Error.OK;
         Boolean numericMatch, uppercaseMatch, lowercaseMatch, minLength;
         //Boolean conditions
-        minLength = pass.length() < com.example.yrj.manageproductrecycler.interfaces.LoginPresenter.MINLENGTH;
+        minLength = pass.length() < ILoginPresenter.MINLENGTH;
         numericMatch = Pattern.matches(".*[0-9]+.*", pass);
         uppercaseMatch = Pattern.matches(".*[a-z]+.*", pass);
         lowercaseMatch = Pattern.matches(".*[A-Z]+.*", pass);
