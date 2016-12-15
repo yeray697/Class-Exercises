@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FavSports</string>
+    <string name="btOk_text">Aceptar</string>
+    <string name="tvTitle_text">Selecciona los deportes que te gustan y pulsa \'Aceptar\'</string>
+    <string name="action_search_sport">Buscar deporte...</string>
+    <string name="search_dialog_title">Escribe un caracter para filtar la lista</string>
+</resources>

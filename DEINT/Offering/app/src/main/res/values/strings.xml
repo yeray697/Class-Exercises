@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Offering</string>
+    <string name="tvTitle_text">Configuración Offering</string>
+    <string name="cbHomeOffers_text">Mostrar ofertas de hogar</string>
+    <string name="cbElectronicOffers_text">Mostrar ofertas de electrónica</string>
+    <string name="cbSportsOffers_text">Mostrar ofertas de deportes</string>
+    <string name="cbPriorityOffers_text">Mostrar la importancia de las ofertas</string>
+    <string name="btFilter_text">Aceptar</string>
+    <string name="action_filter_type_title">Filtro por tipo</string>
+    <string name="action_filter_asc_title">Filtro ascendente</string>
+    <string name="action_filter_desc_title">Filtro descendente</string>
+    <string name="action_about_title">Información App</string>
+    <string name="dialog_title">Offering</string>
+    <string name="dialog_message">Aplicación desarrollada por Yeray Ruiz Juárez</string>
+    <string name="tvName_add_text">Nombre:</string>
+    <string name="etStore_add_text">Tienda:</string>
+    <string name="etDate_add_text">Fecha:</string>
+    <string name="tvType_add_text">Tipo:</string>
+    <string name="tvPriority_add_text">Importancia:</string>
+    <string name="btAdd_add_text">Añadir</string>
+    <string name="dialog_add_message">No se ha podido realizar la operación</string>
+    <string name="home_type">Hogar</string>
+    <string name="sport_type">Deporte</string>
+    <string name="electronic_type">Electrónica</string>
+    <string name="low_priority">No importante</string>
+    <string name="medium_priority">Importante</string>
+    <string name="high_priority">Muy importante</string>
+    <string name="error_settings">Debe seleccionar al menos un tipo de oferta</string>
+</resources>

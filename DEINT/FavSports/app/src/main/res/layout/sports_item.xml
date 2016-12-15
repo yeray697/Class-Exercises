@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<ImageView
+    android:layout_width="70dp"
+    android:layout_height="70dp"
+    android:id="@+id/ivSport_item"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvSport_item"
+        android:layout_toRightOf="@id/ivSport_item"
+        android:layout_toEndOf="@id/ivSport_item"
+        android:textSize="35sp"/>
+    <CheckBox
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/cbSport_item"/>
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FavSports</string>
+    <string name="btOk_text">Ok</string>
+    <string name="tvTitle_text">Select your favourites sportsand press \'Ok\'</string>
+    <string name="action_search_sport">Search sport...</string>
+    <string name="search_dialog_title">Write a char to filter the list</string>
+</resources>

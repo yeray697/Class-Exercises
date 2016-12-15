@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Offering</string>
+    <string name="tvTitle_text">Offering settings</string>
+    <string name="cbHomeOffers_text">Show home offers</string>
+    <string name="cbElectronicOffers_text">Show electronic offers</string>
+    <string name="cbSportsOffers_text">Show sport offers</string>
+    <string name="cbPriorityOffers_text">Show priority offers</string>
+    <string name="btFilter_text">Ok</string>
+    <string name="action_filter_type_title">Filter by type</string>
+    <string name="action_filter_asc_title">Filter alphabetically</string>
+    <string name="action_filter_desc_title">Filter reverse alphabetically</string>
+    <string name="action_about_title">App information</string>
+    <string name="dialog_title">Offering</string>
+    <string name="dialog_message">Application developed by Yeray Ruiz Juárez</string>
+    <string name="tvName_add_text">Name:</string>
+    <string name="etStore_add_text">Store:</string>
+    <string name="etDate_add_text">Date:</string>
+    <string name="tvType_add_text">Type:</string>
+    <string name="tvPriority_add_text">Priority:</string>
+    <string name="btAdd_add_text">Add</string>
+    <string name="dialog_add_message">It could not be added</string>
+    <string name="home_type">Home</string>
+    <string name="sport_type">Sport</string>
+    <string name="electronic_type">Electronic</string>
+    <string name="low_priority">Not important</string>
+    <string name="medium_priority">Importante</string>
+    <string name="high_priority">Very importante</string>
+    <string name="error_settings">You must check at least one kind of offer</string>
+</resources>
