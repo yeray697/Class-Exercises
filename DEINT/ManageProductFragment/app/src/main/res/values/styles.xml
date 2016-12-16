@@ -6,6 +6,17 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@android:color/background_light</item>
+        <item name="actionModeStyle">@style/Widget.ActionMode</item>
+        <item name="android:actionModeStyle">@style/Widget.ActionMode</item>
+        <item name="actionModeCloseDrawable">@mipmap/ic_launcher</item>
+        <item name="android:actionModeCloseDrawable">@mipmap/ic_launcher</item>
+    </style>
+    <style name="Widget.ActionMode" parent="Widget.AppCompat.ActionMode">
+        <item name="background">@color/background_action_mode</item>
+        <item name="android:background">@color/background_action_mode</item>
+        <item name="actionModeBackground">@color/background_action_mode</item>
+        <item name="android:actionModeBackground">@color/background_action_mode</item>
     </style>
     <style name="error" parent="TextAppearance.AppCompat.Caption">
         <item name="android:textColor">@color/colorError</item>

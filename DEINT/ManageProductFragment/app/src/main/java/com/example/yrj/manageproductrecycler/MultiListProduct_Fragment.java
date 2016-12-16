@@ -1,22 +1,19 @@
 package com.example.yrj.manageproductrecycler;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.ListFragment;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -28,9 +25,10 @@ import com.example.yrj.manageproductrecycler.interfaces.ListProductListener;
 import com.example.yrj.manageproductrecycler.model.Product;
 import com.example.yrj.manageproductrecycler.presenter.ProductPresenter;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ListProduct_Fragment extends Fragment implements IProductView {
+public class MultiListProduct_Fragment extends Fragment implements IProductView {
 
     private ProductAdapter adapter;
     private FloatingActionButton fabAdd;
@@ -40,8 +38,8 @@ public class ListProduct_Fragment extends Fragment implements IProductView {
     private TextView tvEmpty;
     private boolean click = false;
 
-    public static ListProduct_Fragment newInstance(Bundle arguments) {
-        ListProduct_Fragment fragment = new ListProduct_Fragment();
+    public static MultiListProduct_Fragment newInstance(Bundle arguments) {
+        MultiListProduct_Fragment fragment = new MultiListProduct_Fragment();
         if (arguments != null)
             fragment.setArguments(arguments);
         return fragment;
@@ -76,6 +74,13 @@ public class ListProduct_Fragment extends Fragment implements IProductView {
         View rootView = inflater.inflate(R.layout.fragment_product,container, false);
         tvEmpty = (TextView)rootView.findViewById(android.R.id.empty);
         listProduct = (ListView) rootView.findViewById(android.R.id.list);
+        fabAdd = (FloatingActionButton) rootView.findViewById(R.id.fabAdd);
+        return rootView;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         listProduct.setAdapter(adapter);
         listProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -85,50 +90,23 @@ public class ListProduct_Fragment extends Fragment implements IProductView {
                 mCallback.showManageProduct(bundle);
             }
         });
-        fabAdd = (FloatingActionButton) rootView.findViewById(R.id.fabAdd);
+        listProduct.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE_MODAL);
+        ArrayList<View> viewsToOcult= new ArrayList<>();
+        viewsToOcult.add(fabAdd);
+        SimpleMultiChoiceModeListener mcl = new SimpleMultiChoiceModeListener(getActivity(), viewsToOcult);
+        listProduct.setMultiChoiceModeListener(mcl);
+        listProduct.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                return true;
+            }
+        });
         fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mCallback.showManageProduct(null);
             }
         });
-        // ¡¡NO ES NECESARIO IMPLEMENTAR EL EVENTO ONLONGCLICKLISTENER!!
-        registerForContextMenu(listProduct);
-
-        return rootView;
-    }
-
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        getActivity().getMenuInflater().inflate(R.menu.menu_contextual, menu);
-    }
-
-    @Override
-    public boolean onContextItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_delete:
-                AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-                final int position = info.position;
-                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setCancelable(false)
-                        .setTitle("Cuidado")
-                        .setMessage("¿Seguro que quieres borrarlo?")
-                        .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                presenter.deleteProduct((Product) listProduct.getItemAtPosition(position));
-                            }
-                        })
-                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        }).show();
-                break;
-        }
-        return true;
     }
 
     @Override
@@ -136,7 +114,6 @@ public class ListProduct_Fragment extends Fragment implements IProductView {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_listproduct, menu);
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -153,7 +130,6 @@ public class ListProduct_Fragment extends Fragment implements IProductView {
     public void showProducts(List<Product> products){
         adapter.updateProducts(products);
     }
-
 
     private void hideList(boolean hide){
         if (hide) {

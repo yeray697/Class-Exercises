@@ -11,17 +11,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.yrj.manageproductrecycler.interfaces.ListProductListener;
 import com.example.yrj.manageproductrecycler.interfaces.ManageProductListener;
 
-public class Home_Activity extends AppCompatActivity implements ManageProductListener,ListProduct_Fragment.ListProductListener{
-    private ListProduct_Fragment listProduct_fragment;
+public class Home_Activity extends AppCompatActivity implements ManageProductListener,ListProductListener {
+    //private ListProduct_Fragment listProduct_fragment;
+    private MultiListProduct_Fragment listProduct_fragment;
     private ManageProduct_Fragment manageProduct_fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        listProduct_fragment = new ListProduct_Fragment();
+        //listProduct_fragment = new ListProduct_Fragment();
+        listProduct_fragment = new MultiListProduct_Fragment();
         getSupportFragmentManager().beginTransaction().add(R.id.frame_home, listProduct_fragment).commit();
     }
 
