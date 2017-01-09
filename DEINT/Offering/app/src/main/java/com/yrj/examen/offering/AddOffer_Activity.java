@@ -84,13 +84,13 @@ public class AddOffer_Activity extends AppCompatActivity {
         priority = spPriority.getSelectedItemPosition();
         switch (priority){
             case 0:
-                priority = Offer.PRIORITY_NOT_IMPORTANT;
+                priority = Offer.Importancia.PRIORITY_NOT_IMPORTANT;
                 break;
             case 1:
-                priority = Offer.PRIORITY_IMPORTANT;
+                priority = Offer.Importancia.PRIORITY_IMPORTANT;
                 break;
             case 2:
-                priority = Offer.PRIORITY_VERY_IMPORTANT;
+                priority = Offer.Importancia.PRIORITY_VERY_IMPORTANT;
                 break;
         }
         if (((Offers_Application)getApplicationContext()).isDuplicated(name)) {

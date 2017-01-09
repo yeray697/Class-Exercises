@@ -29,15 +29,15 @@ public class Offers_Application extends Application {
      * Set 10 offers
      */
     public void setInitialOffers() {
-        offers.add(new Offer("Bici","Decathlon","11/01/2014",Offer.TYPE_SPORT,Offer.PRIORITY_IMPORTANT));
-        offers.add(new Offer("Cámara Went Pro","Media Markt","10/12/2012",Offer.TYPE_ELECTRONIC,Offer.PRIORITY_NOT_IMPORTANT));
-        offers.add(new Offer("Lámpara","Todo Luz","28/02/2015",Offer.TYPE_HOME,Offer.PRIORITY_VERY_IMPORTANT));
-        offers.add(new Offer("IPhone 10","Amazon","01/10/2018",Offer.TYPE_ELECTRONIC,Offer.PRIORITY_VERY_IMPORTANT));
-        offers.add(new Offer("Chándal","Nike Factory","13/03/2015",Offer.TYPE_SPORT,Offer.PRIORITY_VERY_IMPORTANT));
-        offers.add(new Offer("Vajilla","Natur House","03/12/2015",Offer.TYPE_HOME,Offer.PRIORITY_IMPORTANT));
-        offers.add(new Offer("Portátil HP","PC Componentes","23/12/2015",Offer.TYPE_ELECTRONIC,Offer.PRIORITY_IMPORTANT));
-        offers.add(new Offer("Sofá","Ikea","11/01/2016",Offer.TYPE_HOME,Offer.PRIORITY_NOT_IMPORTANT));
-        offers.add(new Offer("Chándal de Nadal","Hobby Sports","25/08/2016",Offer.TYPE_SPORT,Offer.PRIORITY_NOT_IMPORTANT));
+        offers.add(new Offer("Bici","Decathlon","11/01/2014",Offer.TYPE_SPORT, Offer.Importancia.PRIORITY_IMPORTANT));
+        offers.add(new Offer("Cámara Went Pro","Media Markt","10/12/2012",Offer.TYPE_ELECTRONIC,Offer.Importancia.PRIORITY_NOT_IMPORTANT));
+        offers.add(new Offer("Lámpara","Todo Luz","28/02/2015",Offer.TYPE_HOME,Offer.Importancia.PRIORITY_VERY_IMPORTANT));
+        offers.add(new Offer("IPhone 10","Amazon","01/10/2018",Offer.TYPE_ELECTRONIC,Offer.Importancia.PRIORITY_VERY_IMPORTANT));
+        offers.add(new Offer("Chándal","Nike Factory","13/03/2015",Offer.TYPE_SPORT,Offer.Importancia.PRIORITY_VERY_IMPORTANT));
+        offers.add(new Offer("Vajilla","Natur House","03/12/2015",Offer.TYPE_HOME,Offer.Importancia.PRIORITY_IMPORTANT));
+        offers.add(new Offer("Portátil HP","PC Componentes","23/12/2015",Offer.TYPE_ELECTRONIC,Offer.Importancia.PRIORITY_IMPORTANT));
+        offers.add(new Offer("Sofá","Ikea","11/01/2016",Offer.TYPE_HOME,Offer.Importancia.PRIORITY_NOT_IMPORTANT));
+        offers.add(new Offer("Chándal de Nadal","Hobby Sports","25/08/2016",Offer.TYPE_SPORT,Offer.Importancia.PRIORITY_NOT_IMPORTANT));
     }
 
     /**

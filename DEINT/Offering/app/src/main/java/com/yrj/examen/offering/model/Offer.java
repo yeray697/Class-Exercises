@@ -1,7 +1,11 @@
 package com.yrj.examen.offering.model;
 
+import android.support.annotation.IntDef;
+
 import com.yrj.examen.offering.R;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.util.Comparator;
 
 /**
@@ -10,10 +14,14 @@ import java.util.Comparator;
  * @version 1.0
  */
 public class Offer {
-    //Offer priority values
-    public final static int PRIORITY_NOT_IMPORTANT = 1;
-    public final static int PRIORITY_IMPORTANT = 2;
-    public final static int PRIORITY_VERY_IMPORTANT = 3;
+    @Retention(RetentionPolicy.SOURCE)
+    @IntDef()
+    public @interface Importancia{
+        int PRIORITY_NOT_IMPORTANT = 1;
+        int PRIORITY_IMPORTANT = 2;
+        int PRIORITY_VERY_IMPORTANT = 3;
+    }
+
     //Offer type  values
     public final static int TYPE_HOME = 1;
     public final static int TYPE_ELECTRONIC = 2;
@@ -23,7 +31,7 @@ public class Offer {
     private String store;
     private String date;
     private int type;
-    private int priority;
+    private @Importancia int priority;
 
     public static final Comparator<? super Offer> FILTER_ASC = new Comparator<Offer>() {
         @Override
@@ -52,7 +60,7 @@ public class Offer {
      * @param type Offer's type
      * @param priority Offer's priority
      */
-    public Offer(String name, String store, String date, int type, int priority) {
+    public Offer(String name, String store, String date, int type, @Importancia int priority) {
         this.name = name;
         this.store = store;
         this.date = date;

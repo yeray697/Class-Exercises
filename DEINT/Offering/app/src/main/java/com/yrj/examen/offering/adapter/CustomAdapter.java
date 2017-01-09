@@ -66,9 +66,9 @@ public class CustomAdapter extends ArrayAdapter<Offer> {
         holder.tvDate.setText(aux.getDate());
         holder.tvStore.setText(aux.getStore());
         if (priority) {
-            if (aux.getPriority() == Offer.PRIORITY_NOT_IMPORTANT) {
+            if (aux.getPriority() == Offer.Importancia.PRIORITY_NOT_IMPORTANT) {
                 view.setBackgroundColor(getContext().getResources().getColor(R.color.colorLowPriority));
-            } else if (aux.getPriority() == Offer.PRIORITY_IMPORTANT) {
+            } else if (aux.getPriority() == Offer.Importancia.PRIORITY_IMPORTANT) {
                 view.setBackgroundColor(getContext().getResources().getColor(R.color.colorMediumPriority));
             } else {
                 view.setBackgroundColor(getContext().getResources().getColor(R.color.colorHighPriority));
