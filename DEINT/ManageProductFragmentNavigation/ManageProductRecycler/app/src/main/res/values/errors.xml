@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="data_empty_user">El usuario no puede estar vacío</string>
+    <string name="data_empty_name">El nombre del producto no puede estar vacío</string>
+    <string name="data_empty_description">La descripción del producto no puede estar vacía</string>
+    <string name="data_empty_brand">La marca del producto no puede estar vacía</string>
+    <string name="data_empty_dosage">La dosis del producto no puede estar vacía</string>
+    <string name="data_empty_price">El precio del producto no puede estar vacío</string>
+    <string name="data_empty">El campo no puede estar vacío</string>
+    <string name="data_empty_stock">El stock del producto no puede estar vacío</string>
+    <string name="password_digit">La contraseña debe contener 1 dígito</string>
+    <string name="password_case">La contraseña debe contener 1 mayúscula y minúscula</string>
+    <string name="password_length">La longitud de la contraseña debe ser mayor o igual a 8</string>
+</resources>

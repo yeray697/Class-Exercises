@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/action_home"
+            android:title="Inicio"/>
+        <item android:id="@+id/action_products"
+            android:title="Productos"/>
+        <item android:id="@+id/action_pharmacy"
+            android:title="Farmacia"/>
+        <item android:id="@+id/action_invoice"
+            android:title="Venta"/>
+    </group>
+    <item
+        android:id="@+id/navigation_subheader"
+        android:title="Configuración">
+        <menu>
+            <item android:id="@+id/action_help"
+                android:title="Ayuda"/>
+            <item android:id="@+id/action_config"
+                android:title="Configuración"/>
+        </menu>
+    </item>
+</menu>

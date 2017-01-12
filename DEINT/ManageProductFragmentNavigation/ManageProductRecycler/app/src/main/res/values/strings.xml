@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">ManageProduct</string>
+    <string name="cbRememberText">Recordar</string>
+    <string name="etPassHint">Introduce la contraseña</string>
+    <string name="etUserHint">Introduce el usuario</string>
+    <string name="btSubmitText">Login</string>
+    <string name="etNameHint">Nombre del producto</string>
+    <string name="etDescriptionHint">Descripción del producto</string>
+    <string name="etBrandHint">Marca del producto</string>
+    <string name="etDosageHint">Dosis del producto</string>
+    <string name="etPriceHint">Precio del producto</string>
+    <string name="etStockHint">Stock del producto</string>
+    <string name="btSaveText">Guardar</string>
+    <string name="btPhotoText">Seleccionar una foto</string>
+    <string name="tvPhotoText">No has seleccionado ninguna foto</string>
+    <string name="data_empty_photo">No has seleccionado ninguna foto</string>
+    <string name="action_add_product_title">Añadir producto</string>
+    <string name="action_sort_alphabetically_title">Ordenar alfabéticamente</string>
+    <string name="action_settings_general_title">Configuración general</string>
+    <string name="action_settings_account_title">Configuración de la cuenta</string>
+    <string name="btSubmitSignUp_text">Ok</string>
+    <string name="cbPrivacy_text">He leído y acepto la política de privacidad</string>
+    <string name="etBusiness_text">Nombre de la empresa</string>
+    <string name="rbBusiness_text">Empresa</string>
+    <string name="rbPart_text">Particular</string>
+    <string name="tvUserType_text">Tipo de usuario</string>
+    <string name="tvCity_text">Localidad</string>
+    <string name="tvCounty_text">Provincia</string>
+    <string name="etEmail_text">Dirección de correo</string>
+    <string name="etPassSignUp_text">Contraseña</string>
+    <string name="etUserSignUp_text">Nombre de usuario</string>
+    <string name="btSignUp">Registrarse</string>
+    <string name="message">%1$s (%2$s)</string>
+</resources>
