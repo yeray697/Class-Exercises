@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 
-import com.example.yrj.manageproductrecycler.ListProduct_Fragment;
+import com.example.yrj.manageproductrecycler.MultiListProduct_Fragment;
 import com.example.yrj.manageproductrecycler.R;
 import com.example.yrj.manageproductrecycler.interfaces.ILoginPresenter;
 import com.example.yrj.manageproductrecycler.interfaces.ILoginView;
@@ -40,7 +40,7 @@ public class LoginPresenter implements ILoginPresenter {
         if (validateUser == Error.OK) {
             validatePass = validatePass(password);
             if(validatePass == Error.OK) {
-                Intent intent = new Intent(context, ListProduct_Fragment.class);
+                Intent intent = new Intent(context, MultiListProduct_Fragment.class);
                 ((Context)view).startActivity(intent);
             } else {
                 view.setMessageError(Error.getMessageError(context, validatePass), R.id.tilPass);

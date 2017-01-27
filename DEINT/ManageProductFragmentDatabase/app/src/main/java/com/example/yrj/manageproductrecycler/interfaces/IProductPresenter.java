@@ -1,5 +1,7 @@
 package com.example.yrj.manageproductrecycler.interfaces;
 
+import android.app.ProgressDialog;
+
 import com.example.yrj.manageproductrecycler.model.Product;
 
 /**

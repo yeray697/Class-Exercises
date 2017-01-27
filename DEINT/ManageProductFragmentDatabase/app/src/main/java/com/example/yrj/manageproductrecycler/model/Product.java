@@ -15,7 +15,7 @@ import java.util.UUID;
  */
 
 public class Product implements Comparable<Product>, IProduct, Parcelable{
-    private String mId;
+    private int mId;
     private String mName;
     private String mDescription;
     private String mBrand;
@@ -23,6 +23,7 @@ public class Product implements Comparable<Product>, IProduct, Parcelable{
     private double mPrice;
     private int mStock;
     private int mImage;
+    private int mIdCategory;
 
     public static final Comparator<Product> PRICE_COMPARATOR = new Comparator<Product>() {
         @Override
@@ -49,8 +50,8 @@ public class Product implements Comparable<Product>, IProduct, Parcelable{
         }
     };
 
-    public Product(String mName, String mDescription, String mBrand, String mDosage, double mPrice, int mStock, int mImage){
-        this.mId = UUID.randomUUID().toString();
+    public Product(int mId, String mName, String mDescription, String mBrand, String mDosage, double mPrice, int mStock, int mImage, int mIdCategory){
+        this.mId = mId;
         this.mName = mName;
         this.mDescription = mDescription;
         this.mBrand = mBrand;
@@ -58,13 +59,14 @@ public class Product implements Comparable<Product>, IProduct, Parcelable{
         this.mPrice = mPrice;
         this.mStock = mStock;
         this.mImage = mImage;
+        this.mIdCategory = mIdCategory;
     }
     public Product(){
 
     }
 
     protected Product(Parcel in) {
-        mId = in.readString();
+        mId = in.readInt();
         mName = in.readString();
         mDescription = in.readString();
         mBrand = in.readString();
@@ -72,6 +74,7 @@ public class Product implements Comparable<Product>, IProduct, Parcelable{
         mPrice = in.readDouble();
         mStock = in.readInt();
         mImage = in.readInt();
+        mIdCategory = in.readInt();
     }
 
     public static final Creator<Product> CREATOR = new Creator<Product>() {
@@ -86,8 +89,12 @@ public class Product implements Comparable<Product>, IProduct, Parcelable{
         }
     };
 
-    public String getId() {
+    public int getId() {
         return mId;
+    }
+
+    public void setId(int id){
+        this.mId = id;
     }
 
     public String getName() {
@@ -144,6 +151,14 @@ public class Product implements Comparable<Product>, IProduct, Parcelable{
 
     public void setImage(int mImage) {
         this.mImage = mImage;
+    }
+
+    public int getIdCategory() {
+        return mIdCategory;
+    }
+
+    public void setIdCategory(int mIdCategory) {
+        this.mIdCategory = mIdCategory;
     }
 
     public String getFormatedPrice() {
@@ -204,7 +219,7 @@ public class Product implements Comparable<Product>, IProduct, Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(mId);
+        dest.writeInt(mId);
         dest.writeString(mName);
         dest.writeString(mDescription);
         dest.writeString(mBrand);
@@ -212,5 +227,6 @@ public class Product implements Comparable<Product>, IProduct, Parcelable{
         dest.writeDouble(mPrice);
         dest.writeInt(mStock);
         dest.writeInt(mImage);
+        dest.writeInt(mIdCategory);
     }
 }

@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.yrj.manageproductrecycler.Login_Application;
 import com.example.yrj.manageproductrecycler.R;
+import com.example.yrj.manageproductrecycler.database.DatabaseManager;
 import com.example.yrj.manageproductrecycler.model.Product;
 import com.example.yrj.manageproductrecycler.model.ProductRepository;
 
@@ -32,7 +33,7 @@ public class ProductAdapterRecylcer extends RecyclerView.Adapter<ProductAdapterR
         this.context = context;
         this.products = new ArrayList<Product>();
         this.products =
-                ProductRepository.getInstance().getAllProducts();
+                DatabaseManager.getInstance().getAllProducts();
         sortProducts();
     }
     @Override

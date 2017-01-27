@@ -91,7 +91,7 @@ public class SignUp_Activity extends AppCompatActivity implements ISignUpView{
         boolean privacyAccepted = cbPrivacy.isChecked();
         if (presenter.validateCredentials(user,pass,email,county, city, isBusinessType, businessName, privacyAccepted)) {
             presenter.savePreferences(user,email,pass);
-            Intent intent = new Intent(SignUp_Activity.this, ListProduct_Fragment.class);
+            Intent intent = new Intent(SignUp_Activity.this, MultiListProduct_Fragment.class);
             startActivity(intent);
             finish();
         }

@@ -58,6 +58,13 @@ public class MultiListProduct_Fragment extends Fragment implements IProductView 
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        if (presenter != null)
+            presenter.loadProducts();
+    }
+
+    @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {

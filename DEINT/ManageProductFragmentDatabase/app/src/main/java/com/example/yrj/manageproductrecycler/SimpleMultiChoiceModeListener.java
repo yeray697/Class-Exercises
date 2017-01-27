@@ -13,10 +13,6 @@ import android.view.View;
 import android.widget.AbsListView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 /**
  * Created by usuario on 16/12/16.
  */

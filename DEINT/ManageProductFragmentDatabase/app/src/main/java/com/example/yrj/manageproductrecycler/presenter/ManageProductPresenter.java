@@ -1,5 +1,6 @@
 package com.example.yrj.manageproductrecycler.presenter;
 
+import com.example.yrj.manageproductrecycler.database.DatabaseManager;
 import com.example.yrj.manageproductrecycler.interfaces.IManageProductPresenter;
 import com.example.yrj.manageproductrecycler.interfaces.IManageProductView;
 import com.example.yrj.manageproductrecycler.model.Product;
@@ -16,12 +17,12 @@ public class ManageProductPresenter implements IManageProductPresenter {
     }
     @Override
     public void addProduct(Product product) {
-        ProductRepository.getInstance().addProduct(product);
+        DatabaseManager.getInstance().addProduct(product);
     }
 
     @Override
     public void updateProduct(Product product) {
-        ProductRepository.getInstance().updateProduct(product);
+        DatabaseManager.getInstance().updateProduct(product);
     }
 
     @Override

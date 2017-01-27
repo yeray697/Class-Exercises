@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.yrj.manageproductrecycler.database.DatabaseManager;
 import com.example.yrj.manageproductrecycler.interfaces.IManageProductPresenter;
 import com.example.yrj.manageproductrecycler.interfaces.IManageProductView;
 import com.example.yrj.manageproductrecycler.interfaces.IProduct;
@@ -23,6 +24,7 @@ public class ManageProduct_Fragment extends Fragment implements IManageProductVi
     EditText etName, etDescription, etBrand, etDosage, etPrice, etStock;
     Button btSave;
     ManageProductListener mCallback;
+    private boolean addProduct;
 
     public static ManageProduct_Fragment newInstance(Bundle args) {
         ManageProduct_Fragment fragment = new ManageProduct_Fragment();
@@ -34,9 +36,12 @@ public class ManageProduct_Fragment extends Fragment implements IManageProductVi
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) //Modo edición
+        if (getArguments() != null) { //Modo edición
             product = (Product) getArguments().getParcelable(IProduct.PRODUCT_KEY);
+            addProduct = false;
+        }
         else {//Modo nuevo elemento
+            addProduct = true;
         }
     }
 
@@ -90,7 +95,11 @@ public class ManageProduct_Fragment extends Fragment implements IManageProductVi
         product.setDosage(etDosage.getText().toString());
         product.setPrice(Double.parseDouble(etPrice.getText().toString()));
         product.setStock(Integer.parseInt(etStock.getText().toString()));
-
+        product.setImage(R.mipmap.ic_launcher);
+        if (addProduct)
+            DatabaseManager.getInstance().addProduct(product);
+        else
+            DatabaseManager.getInstance().updateProduct(product);
         mCallback.onListProductListener();
     }
 
