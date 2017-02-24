@@ -31,7 +31,7 @@ public class SrvHilo extends Thread{
 			BufferedOutputStream bo = new BufferedOutputStream(miSocket.getOutputStream());
 			PrintWriter pw = new PrintWriter(bo);
 			byte[] mensajeEnBytes = mensajeRecibido.getBytes("utf8");
-			MessageDigest sha = MessageDigest.getInstance("SHA256");
+			MessageDigest sha = MessageDigest.getInstance("SHA-256");
 			pw.println(sha.digest(mensajeEnBytes));
 			pw.flush(); //IMPORTANTE
 			pw.close();

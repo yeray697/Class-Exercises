@@ -12,7 +12,7 @@ import javax.net.ssl.SSLSocketFactory;
 
 public class Cliente {
 
-	static final String DEST = "localhost";
+	static final String DEST = "192.168.3.57";
 	static final int PUERTO = 5555;
 	
 	public Cliente(String mensaje) throws UnknownHostException, IOException {
@@ -46,7 +46,7 @@ public class Cliente {
 		System.setProperty("javax.net.ssl.trustStore", "./cert/yerayCLI");
 		System.setProperty("javax.net.ssl.trustStorePassword", "12345678");
 		
-		String mensaje = "Cago en los muertos de JAVA veinte millones de veces";
+		String mensaje = "Ahí va, te lo he borrado Jesús";
 		new Cliente(mensaje);
 	}
 	

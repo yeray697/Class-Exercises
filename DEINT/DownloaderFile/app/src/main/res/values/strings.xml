@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DownloaderFile</string>
+    <string name="download_file">File download</string>
+    <string name="permission_write_external">Dame amor</string>
+</resources>
